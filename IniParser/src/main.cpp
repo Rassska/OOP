@@ -18,9 +18,11 @@
 
 int main () {
 
+    
+   
     std::string iniFilePath = "/home/rasul/dev/OOP/IniParser/src/inputFile.ini";
     std::string iniFileName = "myIniFile";
- 
+
     inputFile myIniFile(iniFileName, iniFilePath);
     myIniFile.parseIniFile();
     
