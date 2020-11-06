@@ -24,15 +24,18 @@ int main () {
     std::string iniFileName = "myIniFile";
 
     inputFile myIniFile(iniFileName, iniFilePath);
+
     myIniFile.parseIniFile();
+    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
+    // std::cout << get_as<int>(myIniFile.getValue("NCMD", "SampleRate"));
+    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
+    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
+    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
+    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
+
     
-    // myIniFile.getValue(std::string("int"), std::string("COMMON"), std::string("OpenMPThreadsCount")); // There is not reason for refusing
-    // std::cout << '\n';
-    // myIniFile.getValue(std::string("int"), std::string("COMMON"), std::string("StatisterTimeMs")); // Threre is a problem, StatisterTimeMs > INT.MAX
-    // std::cout << '\n';
-    // myIniFile.getValue(std::string("long long"), std::string("COMMON"), std::string("StatisterTimeMs")); // Threre is no problem, StatisterTimeMs < LLONG.MAX
-    // myIniFile.getValue(std::string("double"), std::string("ADC_DEV"), std::string("SampleRate")); // There is no problem, SampleRate < DBL.MAX
-    // myIniFile.getValue(std::string("std::string"), std::string("ADC_DEV"), std::string("DiskCachePath"));
+
+    
 
 
     
