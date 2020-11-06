@@ -37,21 +37,16 @@ void inputFile::parseIniFile() {
     while(getline(myIniFile, currLine)) {
         bool isSection = std::regex_search(currLine.c_str(), sectionPattern);
         bool isArg = std::regex_search(currLine.c_str(), argPattern);
-        
 
         if (isSection) {
             currSection = currLine.substr(1, currLine.size() - 2);
 
         } else if (isArg) {
-    
             currLine.erase(std::min(currLine.find_first_of(';'), currLine.size()));
-            
             currArg = currLine.substr(0, currLine.find_first_of('=') - 1);
             currArgValue = currLine.substr(currLine.find_first_of('=') + 2, currLine.size() - 1);
-            
             currArgValue.erase(std::min(currArgValue.size(), currArgValue.find_last_of(' ')));
-            
-            
+        
             storage_[currSection].emplace(currArg, currArgValue);
         }
     }
