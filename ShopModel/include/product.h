@@ -13,6 +13,7 @@ public:
     explicit product(const std::string& productName);
     
     const size_t getProductId() const;
+    const std::string getProductName() const;
     ~product();
     friend class shop;
 

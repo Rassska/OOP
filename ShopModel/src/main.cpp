@@ -10,41 +10,70 @@
 #include "product.h"
 #include "sshop.h"
 #include "getMinCostProductShop.h"
+#include "functionality.h"
 
 int main () {
 
     std::vector <product*> productBase_;
     std::vector <shop*> shopBase_;
+    functionality functions;
 
-    product* firstProductP = new product();
-    product* secondProductP = new product();
-    product* thirdProductP = new product();
-    productBase_.push_back(firstProductP);
-    productBase_.push_back(secondProductP);
-    productBase_.push_back(thirdProductP);
+    functions.makeShop(shopBase_, "The Veg Box", "Vyazemsky lane 5-7");
+    functions.makeShop(shopBase_, "Veg and More", "Nevsky Prospect 141");
+    functions.makeShop(shopBase_, "Natures Gift", "Vladimirsky prospect 45");
 
-    shop* firstShopP = new shop();
-    shop* secondShopP = new shop();
-    shop* thirdShopP = new shop();
-    shopBase_.push_back(firstShopP);
-    shopBase_.push_back(secondShopP);
-    shopBase_.push_back(thirdShopP);
-
-    firstShopP->addProducts(firstProductP->getProductId(), /*cost*/ 1, /*cnt*/ 10);
-    firstShopP->addProducts(secondProductP->getProductId(), /*cost*/ 3, /*cnt*/ 40);
-    firstShopP->addProducts(thirdProductP->getProductId(), /*cost*/ 6, /*cnt*/ 80);
+    functions.makeProduct(productBase_, "Potato");      // productId = 0
+    functions.makeProduct(productBase_, "Tomato");      // productId = 1
+    functions.makeProduct(productBase_, "Carrot");      // productId = 2
+    functions.makeProduct(productBase_, "Pepper");      // productId = 3
+    functions.makeProduct(productBase_, "Onion");       // productId = 4
+    functions.makeProduct(productBase_, "Garlic");      // productId = 5
+    functions.makeProduct(productBase_, "Radish");      // productId = 6
+    functions.makeProduct(productBase_, "Corn");        // productId = 7
+    functions.makeProduct(productBase_, "Beets");       // productId = 8
+    functions.makeProduct(productBase_, "Green beans"); // productId = 9
+    functions.makeProduct(productBase_, "Eggplant");    // productId = 10
+   
+    functions.addProducts(shopBase_, /*shopId*/ 0, /*productId*/ 0,  "Potato",       /*cnt*/ 10,  /*cost*/ 1000);
+    functions.addProducts(shopBase_, /*shopId*/ 0, /*productId*/ 1,  "Tomato",       /*cnt*/ 100, /*cost*/ 700);
+    functions.addProducts(shopBase_, /*shopId*/ 0, /*productId*/ 2,  "Carrot",       /*cnt*/ 50,  /*cost*/ 600);
+    functions.addProducts(shopBase_, /*shopId*/ 0, /*productId*/ 3,  "Pepper",       /*cnt*/ 80,  /*cost*/ 800);
+    functions.addProducts(shopBase_, /*shopId*/ 0, /*productId*/ 4,  "Onion",        /*cnt*/ 40,  /*cost*/ 900);
     
-    secondShopP->addProducts(firstProductP->getProductId(), /*cost*/ 5, /*cnt*/ 10);
-    secondShopP->addProducts(secondProductP->getProductId(), /*cost*/ 2, /*cnt*/ 40);
-    secondShopP->addProducts(thirdProductP->getProductId(), /*cost*/ 7, /*cnt*/ 80);
+    functions.addProducts(shopBase_, /*shopId*/ 1, /*productId*/ 10, "Eggplant",     /*cnt*/ 30,  /*cost*/ 78);
+    functions.addProducts(shopBase_, /*shopId*/ 1, /*productId*/ 9,  "Green beans",  /*cnt*/ 16,  /*cost*/ 150);
+    functions.addProducts(shopBase_, /*shopId*/ 1, /*productId*/ 8,  "Beets",        /*cnt*/ 121, /*cost*/ 180);
+    functions.addProducts(shopBase_, /*shopId*/ 1, /*productId*/ 7,  "Corn",         /*cnt*/ 133, /*cost*/ 130);
 
-    thirdShopP->addProducts(firstProductP->getProductId(), /*cost*/ 6, /*cnt*/ 10);
-    thirdShopP->addProducts(secondProductP->getProductId(), /*cost*/ 9, /*cnt*/ 40);
-    thirdShopP->addProducts(thirdProductP->getProductId(), /*cost*/ 2, /*cnt*/ 80);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 6,  "Radish",       /*cnt*/ 300, /*cost*/ 780);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 5,  "Garlic",       /*cnt*/ 156, /*cost*/ 15440);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 3,  "Pepper",       /*cnt*/ 11,  /*cost*/ 1220);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 1,  "Tomato",       /*cnt*/ 13,  /*cost*/ 170);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 10, "Eggplant",     /*cnt*/ 309, /*cost*/ 780);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 8,  "Beets",        /*cnt*/ 18,  /*cost*/ 15440);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 9,  "Green beans",  /*cnt*/ 45,  /*cost*/ 1220);
+    functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 7,  "Corn",         /*cnt*/ 20,  /*cost*/ 170);
 
 
    
-    //std::cout << getMinCostProductShop(shopBase_, firstProductP->getProductId())->getShopId();
+    // std::cout << getMinCostProductShop(shopBase_,  1)->getShopId() << '\n';
+    // functions.setNewProductCost(shopBase_, 2, 1, 2000);
+    // functions.showProductList(shopBase_, 2);
+    // std::cout << getMinCostProductShop(shopBase_,  1)->getShopId() << '\n';
+
+    // functions.byingForFixSum(shopBase_, 2, 155400000);
+
+    // std::vector <std::pair<const size_t, size_t>> batch_;
+    // batch_.emplace_back(6, 100);
+    // batch_.emplace_back(5, 100);
+    // batch_.emplace_back(1, 10);
+    // batch_.emplace_back(7, 10);
+
+    // functions.byingBatchVeg (shopBase_, 2, batch_);
+    
+
+
+
     
     
 

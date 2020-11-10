@@ -19,4 +19,5 @@ product::product(const std::string& productName) :
 product::~product(){}
 
 const size_t product::getProductId() const {return productId_;}
+const std::string product::getProductName() const {return productName_;}
 
