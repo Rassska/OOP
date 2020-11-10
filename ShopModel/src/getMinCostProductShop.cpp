@@ -17,9 +17,6 @@ shop* getMinCostProductShop (const std::vector <shop*>& shopBase, const size_t p
             }
             it++;
         }
-        
-        
-        
     }
     return ans;
 

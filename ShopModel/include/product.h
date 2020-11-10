@@ -14,9 +14,10 @@ public:
     
     const size_t getProductId() const;
     const std::string getProductName() const;
-    ~product();
+
     friend class shop;
 
+    ~product();
     static size_t cntOfProducts;
 
 };

@@ -7,7 +7,7 @@
 
 functionality::functionality () = default;
 functionality::~functionality () = default;
-void functionality::makeProduct (std::vector <product*>& productBase_, std::string productName) {
+const void functionality::makeProduct (std::vector <product*>& productBase_, const std::string& productName) const {
 
     product* firstProductP = new product(productName);
     product* secondProductP = new product(productName);
@@ -33,7 +33,7 @@ void functionality::makeProduct (std::vector <product*>& productBase_, std::stri
 
 }
 
-void functionality::makeShop (std::vector <shop*>& shopBase_, std::string shopName, std::string shopAddress) {
+const void functionality::makeShop (std::vector <shop*>& shopBase_, const std::string& shopName, const std::string& shopAddress) const {
 
     shop* firstShopP = new shop(shopName, shopAddress);
     shop* secondShopP = new shop(shopName, shopAddress);
@@ -43,11 +43,11 @@ void functionality::makeShop (std::vector <shop*>& shopBase_, std::string shopNa
     shopBase_.push_back(thirdShopP);
 }
 
-void functionality::addProducts (std::vector <shop*>& shopBase_, size_t shopId, size_t productId, std::string productName, size_t cnt, size_t cost) {
+const void functionality::addProducts (std::vector <shop*>& shopBase_, const size_t shopId, const size_t productId, const std::string& productName, const size_t cnt, const size_t cost) {
     shopBase_[shopId]->products.emplace(std::make_pair(productId, productName), std::make_pair(cnt, cost));
 }
 
-void functionality::setNewProductCost(std::vector <shop*>& shopBase_, const size_t shopId, const size_t productId, size_t newCost) {
+const void functionality::setNewProductCost(std::vector <shop*>& shopBase_, const size_t shopId, const size_t productId, const size_t newCost) {
     auto it = shopBase_[shopId]->products.begin();
     while (it != shopBase_[shopId]->products.end()) {
         if (it->first.first == productId)
@@ -56,7 +56,7 @@ void functionality::setNewProductCost(std::vector <shop*>& shopBase_, const size
     }
 }
 
-void functionality::setNewProductCount(std::vector <shop*>& shopBase_, const size_t shopId, const size_t productId, size_t newCnt) {
+const void functionality::setNewProductCount(std::vector <shop*>& shopBase_, const size_t shopId, const size_t productId, size_t newCnt) {
     auto it = shopBase_[shopId]->products.begin();
     while (it != shopBase_[shopId]->products.end()) {
         if (it->first.first == productId)
@@ -64,9 +64,9 @@ void functionality::setNewProductCount(std::vector <shop*>& shopBase_, const siz
         it++;
     }
 }
-void functionality::showProductList(std::vector <shop*>& shopBase_, const size_t shopId) {
+const void functionality::showProductList(const std::vector <shop*>& shopBase_, const size_t shopId) const {
 
-     std::map <std::pair<size_t, std::string>, std::pair <size_t, size_t>>:: iterator it;
+        std::map <std::pair<size_t, std::string>, std::pair <size_t, size_t>>:: iterator it;
         std::cout << '\n' << "shopId: " << shopBase_[shopId]->shopId_ << ' ' << shopBase_[shopId]->shopName_ << ' ' << shopBase_[shopId]->shopAddress_ << '\n';
         it = shopBase_[shopId]->products.begin();
         while (it != shopBase_[shopId]->products.end()) {
@@ -75,16 +75,18 @@ void functionality::showProductList(std::vector <shop*>& shopBase_, const size_t
         }
        
 }
-void functionality::byingForFixSum (std::vector <shop*>& shopBase_, const size_t shopId, size_t fixSum) {
+const void functionality::byingForFixSum (const std::vector <shop*>& shopBase_, const size_t shopId, const size_t fixSum) const {
+    
+    size_t fixSumD = fixSum;
     auto it = shopBase_[shopId]->products.begin();
     std::map <std::pair<size_t, std::string>, std::pair <size_t, size_t>> possibleByingList;
     while (it != shopBase_[shopId]->products.end()) {
-        if (it->second.second > fixSum) {
+        if (it->second.second > fixSumD) {
             it++;
             continue;;
         }
-        size_t maxCurrenVegCnt = std::min((fixSum / it->second.second), it->second.first);
-        fixSum -= maxCurrenVegCnt * it->second.second;
+        size_t maxCurrenVegCnt = std::min((fixSumD / it->second.second), it->second.first);
+        fixSumD -= maxCurrenVegCnt * it->second.second;
         possibleByingList.emplace(std::make_pair(it->first.first, it->first.second),  std::make_pair(maxCurrenVegCnt, it->second.second));
         it++;
     }
@@ -102,7 +104,7 @@ void functionality::byingForFixSum (std::vector <shop*>& shopBase_, const size_t
 
 }
 
-void functionality::byingBatchVeg (std::vector <shop*>& shopBase_, const size_t shopId, std::vector <std::pair<const size_t, size_t>>& batch) {
+const void functionality::byingBatchVeg (const std::vector <shop*>& shopBase_, const size_t shopId, const std::vector <std::pair<const size_t, const size_t>>& batch) const {
     auto it = shopBase_[shopId]->products.begin();
     auto it1 = batch.begin();
     size_t totalSum = 0;
@@ -120,4 +122,36 @@ void functionality::byingBatchVeg (std::vector <shop*>& shopBase_, const size_t 
         it1++;
     }
     std::cout << totalSum;
+}
+const void functionality::getMinBatchCost (const std::vector <shop*>& shopBase_, const std::vector <std::pair<const size_t, const size_t>>& batch)const {
+    size_t ansShopId = 0;
+    auto it1 = batch.begin();
+    size_t minAns = INT_MAX;
+    
+    for (size_t i = 0; i < shopBase_.size(); i++) {
+        size_t total = 0;
+        size_t checkCnt = batch.size();
+
+        while (it1 != batch.end()) { 
+        auto it = shopBase_[i]->products.begin();
+            while (it != shopBase_[i]->products.end()) {  
+                if (it->first.first == it1->first) {
+                    if (it->second.first >= it1->second) {
+                        total += it1->second * it->second.second;
+                        checkCnt--;
+                        break;
+                    } 
+                }
+                it++;
+            }
+            it1++;
+        }
+        if (checkCnt == 0) {
+            if (minAns > total) {
+                minAns = total;
+                ansShopId = i;
+            }
+        }
+    }
+    std::cout << minAns << ' ' << ansShopId;
 }
