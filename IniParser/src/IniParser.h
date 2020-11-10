@@ -24,6 +24,9 @@ auto get_as(const std::string& str){
     else if constexpr (std::is_same_v<long double, T>) {
         return stold(str);
     }
+    else if constexpr (std::is_same_v<double, T>) {
+        return stod(str);
+    }
     else {
         return str;
     }
@@ -37,11 +40,11 @@ private:
     const std::string fileName_;
  
 public:
-    inputFile();
-    inputFile(const std::string& fileName, const std::string& filePath);
+    explicit inputFile();
+    explicit inputFile(const std::string& fileName, const std::string& filePath);
     ~inputFile();
     void parseIniFile();
 
-    std::string getValue(std::string sectionName, std::string sectionArgName);
+    const std::string getValue(const std::string& sectionName, const std::string& sectionArgName);
 
 };

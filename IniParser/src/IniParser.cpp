@@ -46,24 +46,8 @@ void inputFile::parseIniFile() {
             storage_[currSection].emplace(currArg, currArgValue);
         }
     }
-
-    // std::map<std::string, std::map<std::string, std::string>>::iterator it_ = storage_.begin();
-    // std::map<std::string, std::string>::iterator itInner_;
-    // while (it_ != storage_.end()) {
-    //     std::cout << it_->first << '\n';
-    //     itInner_ = storage_[it_->first].begin();
-    //     while(itInner_ != storage_[it_->first].end()) {
-    //         std::cout << itInner_->first << " = " << itInner_->second << '\n';
-    //         itInner_++;
-    //     }
-    //     it_++;
-    //     std::cout << '\n';
-    // }
-    // exit(0);
-
-
 }
-std::string inputFile::getValue(std::string sectionName, std::string argName) {
+const std::string inputFile::getValue(const std::string& sectionName, const std::string& argName) {
 
     bool attemptToGetValue = false;
     std::string valueForGiving = "*";
