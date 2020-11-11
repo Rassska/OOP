@@ -9,7 +9,7 @@
 #include <bits/stdc++.h>
 #include "product.h"
 #include "sshop.h"
-#include "getMinCostProductShop.h"
+
 #include "functionality.h"
 
 int main () {
@@ -60,26 +60,29 @@ int main () {
     functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 9,  "Green beans",  /*cnt*/ 45,  /*cost*/ 1220);
     functions.addProducts(shopBase_, /*shopId*/ 2, /*productId*/ 7,  "Corn",         /*cnt*/ 20,  /*cost*/ 170);
 
-
-   
-    // std::cout << getMinCostProductShop(shopBase_,  3)->getShopId() << '\n';
+    /* 3 */
     // functions.showProductList(shopBase_, 2);
     // functions.setNewProductCost(shopBase_, 2, 1, 2000);
     // functions.showProductList(shopBase_, 2);
-    // functions.showProductList(shopBase_, 2);
-    // std::cout << getMinCostProductShop(shopBase_,  1)->getShopId() << '\n';
+    
+    /* 4 */
+    // functions.showMinCostProductShop(shopBase_,  3);
+   
 
-    // functions.byingForFixSum(shopBase_, 2, 155400000);
+    /* 5 */
+    // functions.showByingForFixSum(shopBase_, 2, 15500);
 
-    // std::vector <std::pair<const size_t, size_t>> batch_;
+    /* 6 */
+    // std::vector <std::pair<const size_t, const size_t>> batch_;
     // batch_.emplace_back(6, 100);
     // batch_.emplace_back(5, 100);
     // batch_.emplace_back(1, 10);
     // batch_.emplace_back(7, 10);
 
-    // functions.byingBatchVeg (shopBase_, 2, batch_);
+    // functions.showByingBatchVeg (shopBase_, 2, batch_);
     
-    // functions.getMinBatchCost (shopBase_, batch_);
+    /* 7 */
+    // functions.showMinBatchCost (shopBase_, batch_);
     
 
 

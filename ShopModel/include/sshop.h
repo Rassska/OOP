@@ -18,7 +18,6 @@ public:
     const size_t getShopId() const;
 
     static size_t cntOfShops;
-    friend shop* getMinCostProductShop (const std::vector <shop*>& shopBase, const size_t productId);
     friend class functionality;
     ~shop();
 };

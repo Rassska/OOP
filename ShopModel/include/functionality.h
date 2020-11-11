@@ -17,9 +17,10 @@ public:
     const void setNewProductCost (std::vector <shop*>& shopBase_, const size_t shopId, const size_t productId, const size_t newCost);
     const void setNewProductCount (std::vector <shop*>& shopBase_, const size_t shopId, const size_t productId, size_t newCnt);
     const void showProductList (const std::vector <shop*>& shopBase_, const size_t shopId) const;
-    const void byingForFixSum (const std::vector <shop*>& shopBase_, const size_t shopId, const size_t fixSum) const;
-    const void byingBatchVeg (const std::vector <shop*>& shopBase_, const size_t shopId, const std::vector <std::pair<const size_t, const size_t>>& batch) const;
-    const void getMinBatchCost (const std::vector <shop*>& shopBase_, const std::vector <std::pair<const size_t, const size_t>>& batch)const;
+    const void showByingForFixSum (const std::vector <shop*>& shopBase_, const size_t shopId, const size_t fixSum) const;
+    const void showByingBatchVeg (const std::vector <shop*>& shopBase_, const size_t shopId, std::vector <std::pair<const size_t, const size_t>>& batch) const;
+    const void showMinBatchCost (const std::vector <shop*>& shopBase_, const std::vector <std::pair<const size_t, const size_t>>& batch)const;
+    const void showMinCostProductShop (const std::vector <shop*>& shopBase, const size_t productId);
     ~functionality();
 };
 
