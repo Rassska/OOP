@@ -3,14 +3,18 @@
 
 
 inputFile::inputFile() = default;
-inputFile::inputFile(const std::string& fileName, const std::string& filePath) : 
+
+
+
+inputFile::inputFile(std::string_view fileName, std::string_view filePath) : 
     fileName_(fileName), filePath_(filePath) {}
 inputFile::~inputFile(){}
 
 void inputFile::parseIniFile() {
 
     std::ifstream myIniFile;
-    bool isIniFile = (filePath_.substr(filePath_.size() - 4, filePath_.size() - 1) == ".ini");
+    std::string_view filePathView = filePath_;
+    bool isIniFile = (filePathView.substr(filePath_.size() - 4, filePath_.size() - 1) == ".ini");
     
     if (!isIniFile) 
         throw std::runtime_error("Fail, invalid file format! Only allowed format like: \".ini\"\n");   
@@ -20,33 +24,42 @@ void inputFile::parseIniFile() {
         throw std::runtime_error("Fail, file isn't existing\n"); 
     }
 
+    
     std::string currLine = "*";
-
     std::string currSection = "*";
     std::string currArg = "*";
     std::string currArgValue = "*";
 
+    size_t numberOfLine = 0;
+
     std::regex sectionPattern("(\\[)" "([\\w]+)" "(\\])");
-    std::regex argPattern("([\\w]+)" "([ ])");
-    std::regex argValuePattern("([\\= ])" "([\\w\\.]+)");
+    std::regex argValuePattern("([\\w]+)" "([' '])" "\\=" "([' '])" "([\\w\\.\\/]+)");
     
     while(getline(myIniFile, currLine)) {
-        bool isSection = std::regex_search(currLine.c_str(), sectionPattern);
-        bool isArg = std::regex_search(currLine.c_str(), argPattern);
+
+        numberOfLine++;
+        currLine.erase(std::min(currLine.find_first_of(';'), currLine.size())); // refusing comments
+        bool isSection = std::regex_match(currLine.c_str(), sectionPattern);
+        bool isArg = std::regex_match(currLine.c_str(), argValuePattern);
+        bool isGap = (currLine.size() == 0);
 
         if (isSection) {
             currSection = currLine.substr(1, currLine.size() - 2);
-
         } else if (isArg) {
-            currLine.erase(std::min(currLine.find_first_of(';'), currLine.size()));
             currArg = currLine.substr(0, currLine.find_first_of('=') - 1);
-            currArgValue = currLine.substr(currLine.find_first_of('=') + 2, currLine.size() - 1);
-            currArgValue.erase(std::min(currArgValue.size(), currArgValue.find_last_of(' ')));
-        
+            currArgValue = currLine.substr(currLine.find_first_of('=') + 2);
+
             storage_[currSection].emplace(currArg, currArgValue);
         }
+        
+        if (!isSection && !isArg && !isGap) {
+            throw std::runtime_error("Fail, file was corrupted on the line: " + std::to_string(numberOfLine));
+        }
+            
+
     }
 }
+
 const std::string inputFile::getValue(const std::string& sectionName, const std::string& argName) {
 
     bool attemptToGetValue = false;

@@ -38,10 +38,9 @@ private:
  
 public:
     inputFile();
-    inputFile(const std::string& fileName, const std::string& filePath);
+    inputFile(std::string_view fileName, std::string_view filePath);
     ~inputFile();
     void parseIniFile();
 
-    std::string getValue(std::string sectionName, std::string sectionArgName);
-
+    const std::string getValue(const std::string& sectionName, const std::string& sectionArgName);
 };

@@ -13,12 +13,18 @@
 
 int main () {
 
-    const std::string iniFilePath = "/home/rasul/dev/OOP/IniParser/src/inputFile.ini";
+    const std::string iniFilePath = "/home/rasul/dev/OOP/IniParser/Include/inputFile.ini";
     const std::string iniFileName = "myIniFile";
 
     inputFile myIniFile(iniFileName, iniFilePath);
-
-    myIniFile.parseIniFile();
+    try {
+        myIniFile.parseIniFile();
+    }
+    catch (const std::exception& exp) {
+        std::cout << exp.what() << '\n';
+    }
+        
+    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "StatisterTimeMs"));
     // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
     // std::cout << get_as<int>(myIniFile.getValue("NCMD", "SampleRate"));
     // std::cout << get_as<double>(myIniFile.getValue("COMMON", "DiskCachePath"));
