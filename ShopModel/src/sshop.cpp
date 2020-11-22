@@ -22,7 +22,6 @@ std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size
 shop::~shop(){}
 
 const std::size_t shop::getShopId() const {return shopId_;}
-
 const std::string shop::getShopName() const {return shopName_;}
 const std::string shop::getShopAddress() const {return shopAddress_;}
 
