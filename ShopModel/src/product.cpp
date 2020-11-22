@@ -1,7 +1,7 @@
 #include "product.h"
 #include <bits/stdc++.h>
 
-size_t product::cntOfProducts = 0;
+std::size_t product::cntOfProducts = 0;
 product::product() :
     productId_(cntOfProducts) 
     {
@@ -18,6 +18,6 @@ product::product(const std::string& productName) :
 
 product::~product(){}
 
-const size_t product::getProductId() const {return productId_;}
+const std::size_t product::getProductId() const {return productId_;}
 const std::string product::getProductName() const {return productName_;}
 

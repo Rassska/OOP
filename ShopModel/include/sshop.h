@@ -5,19 +5,23 @@
 
 class shop {
 private:
-    size_t shopId_;
+    std::size_t shopId_;
     std::string shopName_;
     std::string shopAddress_;
-    std::map <std::pair<size_t, std::string>, std::pair <size_t, size_t>> products;
+    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>> products;
 
     
 public:
     
     explicit shop();
     explicit shop(const std::string& shopName, const std::string& shopAddress);
-    const size_t getShopId() const;
+    const std::size_t getShopId() const;
+    const std::string getShopName() const;
+    const std::string getShopAddress() const;
+    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator getProductsItBegin () ;
+    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator getProductsItEnd () ;
+    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>* getProducts();
+    static std::size_t cntOfShops;
 
-    static size_t cntOfShops;
-    friend class functionality;
     ~shop();
 };
