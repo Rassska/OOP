@@ -60,16 +60,16 @@ int main () {
     
     
     /* 3 */
-    functions.showProductList( 2);
-    functions.setNewProductCost( 2, 1, 2000);
-    functions.showProductList(2);
+    // functions.showProductList( 2);
+    // functions.setNewProductCost( 2, 1, 2000);
+    // functions.showProductList(2);
     
     /* 4 */
-    // functions.showMinCostProductShop(shopBase_,  3);
+   // functions.showMinCostProductShop(3);
    
 
     /* 5 */
-    // functions.showByingForFixSum(shopBase_, 2, 15500);
+    // functions.showByingForFixSum(2, 15500);
 
     /* 6 */
     // std::vector <std::pair<const std::size_t, const std::size_t>> batch_;
@@ -78,10 +78,10 @@ int main () {
     // batch_.emplace_back(1, 10);
     // batch_.emplace_back(7, 10);
 
-    // functions.showByingBatchVeg (shopBase_, 2, batch_);
+    // functions.showByingBatchVeg (2, batch_);
     
     /* 7 */
-    // functions.showMinBatchCost (shopBase_, batch_);
+    // functions.showMinBatchCost (batch_);
     
 
 
