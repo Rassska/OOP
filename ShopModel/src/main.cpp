@@ -81,7 +81,7 @@ int main () {
     // functions.showByingBatchVeg (2, batch_);
     
     /* 7 */
-    // functions.showMinBatchCost (batch_);
+   // functions.showMinBatchCost (batch_);
     
 
 

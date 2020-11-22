@@ -18,8 +18,7 @@ public:
     const std::size_t getShopId() const;
     const std::string getShopName() const;
     const std::string getShopAddress() const;
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator getProductsItBegin () ;
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator getProductsItEnd () ;
+    
     std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>* getProducts();
     static std::size_t cntOfShops;
 

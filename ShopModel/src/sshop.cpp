@@ -15,14 +15,6 @@ shop::shop(const std::string& shopName, const std::string& shopAddress) :
         cntOfShops++;
     }
 
-std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator shop::getProductsItBegin ()  {
-    return products.begin();
-}
-
-std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator shop::getProductsItEnd ()   {
-    return products.end();
-}
-
 std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>* shop::getProducts () {
     return &products;
 }
