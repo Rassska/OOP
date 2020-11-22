@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 
 template<typename T>
-auto get_as(const std::string& str){
+const auto get_as(const std::string& str) {
 
     if constexpr (std::is_same_v<int, T>) {
         return stoi(str);
@@ -23,6 +23,9 @@ auto get_as(const std::string& str){
     }
     else if constexpr (std::is_same_v<long double, T>) {
         return stold(str);
+    }
+    else if constexpr (std::is_same_v<double, T>) {
+        return stod(str);
     }
     else {
         return str;
