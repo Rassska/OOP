@@ -38,7 +38,11 @@ void inputFile::parseIniFile() {
     while(getline(myIniFile, currLine)) {
 
         numberOfLine++;
-        currLine.erase(std::min(currLine.find_first_of(';'), currLine.size())); // refusing comments
+        if (currLine.find_first_of(';') != std::string::npos) {
+            currLine.erase(currLine.find_first_of(';')); // refusing comments
+        }
+        
+        
         bool isSection = std::regex_match(currLine.c_str(), sectionPattern);
         bool isArg = std::regex_match(currLine.c_str(), argValuePattern);
         bool isGap = (currLine.size() == 0);
