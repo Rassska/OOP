@@ -8,6 +8,7 @@ private:
     std::size_t shopId_;
     std::string shopName_;
     std::string shopAddress_;
+
     std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>> products;
 
     
@@ -18,8 +19,13 @@ public:
     const std::size_t getShopId() const;
     const std::string getShopName() const;
     const std::string getShopAddress() const;
-    
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>* getProducts();
+
+    const std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator begin();
+    const std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator end();
+
+
+    void addProducts (std::pair<const std::size_t, const std::string> first, std::pair<const std::size_t, const std::size_t> second);
+
     static std::size_t cntOfShops;
 
     ~shop();

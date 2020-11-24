@@ -17,13 +17,18 @@ const void functionality::makeShop (const std::string& shopName, const std::stri
     shopBase_.push_back(newShopP);
 }
 
+
+
 const void functionality::addProducts (const std::size_t shopId, const std::size_t productId, const std::string& productName, const std::size_t cnt, const std::size_t cost) {
-    (*shopBase_[shopId]->getProducts()).emplace(std::make_pair(productId, productName), std::make_pair(cnt, cost));
+    shopBase_[shopId]->addProducts(std::make_pair(productId, productName), std::make_pair(cnt, cost));
 }
 
+
+
+
 const void functionality::setNewProductCost(const std::size_t shopId, const std::size_t productId, const std::size_t newCost) {
-    auto it = shopBase_[shopId]->getProducts()->begin();
-    while (it != shopBase_[shopId]->getProducts()->end()) {
+    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator it = shopBase_[shopId]->begin();
+    while (it != shopBase_[shopId]->end()) {
         if (it->first.first == productId)
             it->second.second = newCost;
         it++;
@@ -31,8 +36,8 @@ const void functionality::setNewProductCost(const std::size_t shopId, const std:
 }
 
 const void functionality::setNewProductCount(const std::size_t shopId, const std::size_t productId, std::size_t newCnt) {
-    auto it = shopBase_[shopId]->getProducts()->begin();
-    while (it != shopBase_[shopId]->getProducts()->end()) {
+    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator it = shopBase_[shopId]->begin();
+    while (it != shopBase_[shopId]->end()) {
         if (it->first.first == productId)
             it->second.first = newCnt;
         it++;
@@ -42,8 +47,8 @@ const void functionality::showProductList(const size_t shopId) const {
 
         std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it;
         std::cout << '\n' << "shopId: " << shopBase_[shopId]->getShopId() << ' ' << shopBase_[shopId]->getShopName() << ' ' << shopBase_[shopId]->getShopAddress() << '\n';
-        it = shopBase_[shopId]->getProducts()->begin();
-        while (it != shopBase_[shopId]->getProducts()->end()) {
+        it = shopBase_[shopId]->begin();
+        while (it != shopBase_[shopId]->end()) {
             std::cout << "Id: " << it->first.first << ' ' << "Name: " << it->first.second << ' ' << "Cost: " << it->second.second << ' ' << "Count: " << it->second.first << '\n';
             it++;
         }
@@ -52,9 +57,9 @@ const void functionality::showProductList(const size_t shopId) const {
 const void functionality::showByingForFixSum (const std::size_t shopId, const std::size_t fixSum) const {
     
     std::size_t fixSumD = fixSum;
-    auto it = shopBase_[shopId]->getProducts()->begin();
+    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it = shopBase_[shopId]->begin();
     std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>> possibleByingList;
-    while (it != shopBase_[shopId]->getProducts()->end()) {
+    while (it != shopBase_[shopId]->end()) {
         if (it->second.second > fixSumD) {
             it++;
             continue;;
@@ -65,7 +70,7 @@ const void functionality::showByingForFixSum (const std::size_t shopId, const st
         it++;
     }
 
-    auto it1 = possibleByingList.begin();
+    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it1 = possibleByingList.begin();
     std::size_t totalPurchasesSum = 0;
     while (it1 != possibleByingList.end()) {
         totalPurchasesSum += it1->second.first * it1->second.second;
@@ -79,11 +84,11 @@ const void functionality::showByingForFixSum (const std::size_t shopId, const st
 }
 
 const void functionality::showByingBatchVeg (const std::size_t shopId, std::vector <std::pair<const std::size_t, const std::size_t>>& batch) const {
-    auto it = shopBase_[shopId]->getProducts()->begin();
-    auto it1 = batch.begin();
+    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it = shopBase_[shopId]->begin();
+    std::vector <std::pair<const std::size_t, const std::size_t>>::iterator it1 = batch.begin();
     std::size_t totalSum = 0;
     while (it1 != batch.end()) {
-        while (it != shopBase_[shopId]->getProducts()->end()) {
+        while (it != shopBase_[shopId]->end()) {
             if (it->first.first == it1->first) {
                 if (it1->second > it->second.first) {
                     throw std::runtime_error ("The amount of vegetables less than requested!");
@@ -97,9 +102,9 @@ const void functionality::showByingBatchVeg (const std::size_t shopId, std::vect
     }
     std::cout << totalSum;
 }
-const void functionality::showMinBatchCost (const std::vector <std::pair<const std::size_t, const std::size_t>>& batch) const {
+const void functionality::showMinBatchCost (std::vector <std::pair<const std::size_t, const std::size_t>>& batch) const {
     std::size_t ansShopId = 0;
-    auto it1 = batch.begin();
+    std::vector <std::pair<const std::size_t, const std::size_t>>::iterator it1 = batch.begin();
     std::size_t minAns = INT_MAX;
     
     for (std::size_t i = 0; i < shopBase_.size(); i++) {
@@ -107,8 +112,8 @@ const void functionality::showMinBatchCost (const std::vector <std::pair<const s
         std::size_t checkCnt = batch.size();
 
         while (it1 != batch.end()) { 
-        auto it = shopBase_[i]->getProducts()->begin();
-            while (it != shopBase_[i]->getProducts()->end()) {  
+        auto it = shopBase_[i]->begin();
+            while (it != shopBase_[i]->end()) {  
                 if (it->first.first == it1->first) {
                     if (it->second.first >= it1->second) {
                         total += it1->second * it->second.second;
@@ -134,9 +139,9 @@ const void functionality::showMinCostProductShop (const std::size_t productId) {
     shop* ans = nullptr;
     std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it;
     for (std::size_t i = 0; i < shopBase_.size(); i++) {
-        it = shopBase_[i]->getProducts()->begin();
+        it = shopBase_[i]->begin();
         
-        while (it != shopBase_[i]->getProducts()->end()) {
+        while (it != shopBase_[i]->end()) {
             if (it->second.second < minCost && it->first.first == productId) {
                 minCost = it->second.second;
                 ans = shopBase_[i];

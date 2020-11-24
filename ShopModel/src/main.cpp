@@ -60,8 +60,8 @@ int main () {
     
     
     /* 3 */
-    // functions.showProductList( 2);
-    // functions.setNewProductCost( 2, 1, 2000);
+    // functions.showProductList(2);
+    // functions.setNewProductCost(2, 1, 2000);
     // functions.showProductList(2);
     
     /* 4 */
