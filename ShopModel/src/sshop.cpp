@@ -18,9 +18,9 @@ shop::shop(const std::string& shopName, const std::string& shopAddress) :
 
 shop::~shop(){}
 
-const std::size_t shop::getShopId() const {return shopId_;}
-const std::string shop::getShopName() const {return shopName_;}
-const std::string shop::getShopAddress() const {return shopAddress_;}
+std::size_t shop::getShopId() const {return shopId_;}
+std::string shop::getShopName() const {return shopName_;}
+std::string shop::getShopAddress() const {return shopAddress_;}
 
 void shop::addProducts (std::pair<std::size_t,std::string> prodIdName, std::pair<std::size_t, std::size_t> prodCntCost) {
     products.emplace(prodIdName, prodCntCost);
@@ -57,7 +57,7 @@ void shop::showProductList() {
 void shop::showByingForFixSum (std::size_t fixSum) {
     
     std::size_t fixSumD = fixSum;
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it = products.begin();
+    auto it = products.begin();
     std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>> possibleByingList;
     while (it != products.end()) {
         if (it->second.second > fixSumD) {
@@ -70,7 +70,7 @@ void shop::showByingForFixSum (std::size_t fixSum) {
         it++;
     }
 
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it1 = possibleByingList.begin();
+    auto it1 = possibleByingList.begin();
     std::size_t totalPurchasesSum = 0;
     while (it1 != possibleByingList.end()) {
         totalPurchasesSum += it1->second.first * it1->second.second;
@@ -83,10 +83,12 @@ void shop::showByingForFixSum (std::size_t fixSum) {
 
 }
 
-std::size_t shop::getBatchCost (std::vector <std::pair<std::size_t, std::size_t>> batch) {
+std::size_t shop::getBatchCost (const std::vector <std::pair<std::size_t, std::size_t>>& batch) const {
     
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator prodIt = products.begin();
-    std::vector <std::pair<std::size_t, std::size_t>>::iterator batchIt = batch.begin();
+    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>::const_iterator prodIt = products.begin();
+    std::vector <std::pair<std::size_t, std::size_t>>::const_iterator batchIt = batch.begin();
+
+
     std::size_t totalSum = 0;
     while (batchIt != batch.end()) {
         while (prodIt != products.end()) {

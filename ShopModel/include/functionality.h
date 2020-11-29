@@ -22,7 +22,7 @@ public:
     const void showByingForFixSum (const std::size_t shopId, const std::size_t fixSum) const;
     const void showByingBatchVeg (const std::size_t shopId, const std::vector <std::pair<std::size_t, std::size_t>>& batch) const;
     const void showMinBatchCost (const std::vector <std::pair<std::size_t, std::size_t>>& batch) const;
-    const void showMinCostProductShop (const std::size_t productId);
+    const void showMinCostProductShop (const std::size_t productId) const;
     ~functionality();
 };
 

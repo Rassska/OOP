@@ -58,7 +58,7 @@ const void functionality::showMinBatchCost (const std::vector <std::pair<std::si
     
 }
 
-const void functionality::showMinCostProductShop (const std::size_t productId) {
+const void functionality::showMinCostProductShop (const std::size_t productId) const {
     std::size_t minCost = std::numeric_limits<std::size_t>::max();
     std::size_t ansShopId = std::numeric_limits<std::size_t>::max();
    
