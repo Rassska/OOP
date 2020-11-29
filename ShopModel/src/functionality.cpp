@@ -18,136 +18,55 @@ const void functionality::makeShop (const std::string& shopName, const std::stri
 }
 
 
-
-const void functionality::addProducts (const std::size_t shopId, const std::size_t productId, const std::string& productName, const std::size_t cnt, const std::size_t cost) {
-    shopBase_[shopId]->addProducts(std::make_pair(productId, productName), std::make_pair(cnt, cost));
+const void functionality::addProducts (const std::size_t shopId, const std::pair<std::size_t, std::string> prodIdName,  const std::pair<std::size_t, std::size_t> prodCntCost) const {
+    shopBase_[shopId]->addProducts(prodIdName, prodCntCost);
 }
 
-
-
-
-const void functionality::setNewProductCost(const std::size_t shopId, const std::size_t productId, const std::size_t newCost) {
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator it = shopBase_[shopId]->begin();
-    while (it != shopBase_[shopId]->end()) {
-        if (it->first.first == productId)
-            it->second.second = newCost;
-        it++;
-    }
+const void functionality::setNewProductCost(const std::size_t shopId, const std::size_t productId, const std::size_t newCost) const {
+    shopBase_[shopId]->setNewProductCost(productId, newCost);
 }
 
-const void functionality::setNewProductCount(const std::size_t shopId, const std::size_t productId, std::size_t newCnt) {
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator it = shopBase_[shopId]->begin();
-    while (it != shopBase_[shopId]->end()) {
-        if (it->first.first == productId)
-            it->second.first = newCnt;
-        it++;
-    }
+const void functionality::setNewProductCount(const std::size_t shopId, const std::size_t productId, const std::size_t newCnt) const {
+    shopBase_[shopId]->setNewProductCount(productId, newCnt);
 }
 const void functionality::showProductList(const size_t shopId) const {
-
-        std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it;
-        std::cout << '\n' << "shopId: " << shopBase_[shopId]->getShopId() << ' ' << shopBase_[shopId]->getShopName() << ' ' << shopBase_[shopId]->getShopAddress() << '\n';
-        it = shopBase_[shopId]->begin();
-        while (it != shopBase_[shopId]->end()) {
-            std::cout << "Id: " << it->first.first << ' ' << "Name: " << it->first.second << ' ' << "Cost: " << it->second.second << ' ' << "Count: " << it->second.first << '\n';
-            it++;
-        }
-       
+    shopBase_[shopId]->showProductList();
 }
+
+
 const void functionality::showByingForFixSum (const std::size_t shopId, const std::size_t fixSum) const {
-    
-    std::size_t fixSumD = fixSum;
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it = shopBase_[shopId]->begin();
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>> possibleByingList;
-    while (it != shopBase_[shopId]->end()) {
-        if (it->second.second > fixSumD) {
-            it++;
-            continue;;
-        }
-        std::size_t maxCurrenVegCnt = std::min((fixSumD / it->second.second), it->second.first);
-        fixSumD -= maxCurrenVegCnt * it->second.second;
-        possibleByingList.emplace(std::make_pair(it->first.first, it->first.second),  std::make_pair(maxCurrenVegCnt, it->second.second));
-        it++;
-    }
-
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it1 = possibleByingList.begin();
-    std::size_t totalPurchasesSum = 0;
-    while (it1 != possibleByingList.end()) {
-        totalPurchasesSum += it1->second.first * it1->second.second;
-        std::cout << '\n' << "Id: " << it1->first.first  << ' ' << "Name: " << it1->first.second << ' ' << "Count: " << it1->second.first << ' ' << "Cost: " << it1->second.second;
-        it1++;
-    }
-    std::cout << '\n' << '\n';
-    std::cout << "Total sum of current purchases: " <<totalPurchasesSum;
-    std::cout << '\n';
-
+    shopBase_[shopId]->showByingForFixSum(fixSum);
 }
 
-const void functionality::showByingBatchVeg (const std::size_t shopId, std::vector <std::pair<const std::size_t, const std::size_t>>& batch) const {
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it = shopBase_[shopId]->begin();
-    std::vector <std::pair<const std::size_t, const std::size_t>>::iterator it1 = batch.begin();
-    std::size_t totalSum = 0;
-    while (it1 != batch.end()) {
-        while (it != shopBase_[shopId]->end()) {
-            if (it->first.first == it1->first) {
-                if (it1->second > it->second.first) {
-                    throw std::runtime_error ("The amount of vegetables less than requested!");
-                } else {
-                    totalSum += it->second.second * it1->second;
-                }
-            }
-            it++;
-        }
-        it1++;
-    }
-    std::cout << totalSum;
+const void functionality::showByingBatchVeg (const std::size_t shopId, const std::vector <std::pair <std::size_t, std::size_t>>& batch) const {
+    std::cout << shopBase_[shopId]->getBatchCost(batch);
+
 }
-const void functionality::showMinBatchCost (std::vector <std::pair<const std::size_t, const std::size_t>>& batch) const {
+const void functionality::showMinBatchCost (const std::vector <std::pair<std::size_t, std::size_t>>& batch) const{ 
+
     std::size_t ansShopId = 0;
-    std::vector <std::pair<const std::size_t, const std::size_t>>::iterator it1 = batch.begin();
-    std::size_t minAns = INT_MAX;
-    
-    for (std::size_t i = 0; i < shopBase_.size(); i++) {
-        std::size_t total = 0;
-        std::size_t checkCnt = batch.size();
+    std::size_t minCost = std::numeric_limits<std::size_t>::max();
 
-        while (it1 != batch.end()) { 
-        auto it = shopBase_[i]->begin();
-            while (it != shopBase_[i]->end()) {  
-                if (it->first.first == it1->first) {
-                    if (it->second.first >= it1->second) {
-                        total += it1->second * it->second.second;
-                        checkCnt--;
-                        break;
-                    } 
-                }
-                it++;
-            }
-            it1++;
-        }
-        if (checkCnt == 0) {
-            if (minAns > total) {
-                minAns = total;
-                ansShopId = i;
-            }
-        }
-    }
-    std::cout << minAns << ' ' << ansShopId;
-}
-const void functionality::showMinCostProductShop (const std::size_t productId) {
-    std::size_t minCost = INT_MAX;
-    shop* ans = nullptr;
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>:: iterator it;
     for (std::size_t i = 0; i < shopBase_.size(); i++) {
-        it = shopBase_[i]->begin();
-        
-        while (it != shopBase_[i]->end()) {
-            if (it->second.second < minCost && it->first.first == productId) {
-                minCost = it->second.second;
-                ans = shopBase_[i];
-            }
-            it++;
+        if (shopBase_[i]->getBatchCost(batch) < minCost) {
+            minCost = shopBase_[i]->getBatchCost(batch);
+            ansShopId = i;
         }
     }
-    std::cout << ans->getShopId();
+
+    std::cout << minCost << ' ' << ansShopId << '\n';
+    
+}
+
+const void functionality::showMinCostProductShop (const std::size_t productId) {
+    std::size_t minCost = std::numeric_limits<std::size_t>::max();
+    std::size_t ansShopId = std::numeric_limits<std::size_t>::max();
+   
+    for (std::size_t i = 0; i < shopBase_.size(); i++) {
+        if (shopBase_[i]->getProdCost(productId) < minCost) {
+            minCost = shopBase_[i]->getProdCost(productId);
+            ansShopId = i;
+        }
+    }
+    std::cout << minCost << ' ' << ansShopId << '\n';
 }

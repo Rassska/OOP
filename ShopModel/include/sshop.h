@@ -19,13 +19,15 @@ public:
     const std::size_t getShopId() const;
     const std::string getShopName() const;
     const std::string getShopAddress() const;
+    
+    void addProducts (std::pair<std::size_t, std::string> prodIdName, std::pair<std::size_t, std::size_t> prodCntCost);
+    void setNewProductCost (std::size_t productId, std::size_t newCost) ;
+    void setNewProductCount (std::size_t productId, std::size_t newCnt) ;
+    void showByingForFixSum (std::size_t fixSum);
 
-    const std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator begin();
-    const std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator end();
-
-
-    void addProducts (std::pair<const std::size_t, const std::string> first, std::pair<const std::size_t, const std::size_t> second);
-
+    std::size_t getBatchCost (std::vector <std::pair<std::size_t, std::size_t>> batch);
+    std::size_t getProdCost (const std::size_t prodId) const;
+    void showProductList();
     static std::size_t cntOfShops;
 
     ~shop();
