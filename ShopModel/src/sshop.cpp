@@ -85,8 +85,8 @@ void shop::showByingForFixSum (std::size_t fixSum) {
 
 std::size_t shop::getBatchCost (const std::vector <std::pair<std::size_t, std::size_t>>& batch) const {
     
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>::const_iterator prodIt = products.begin();
-    std::vector <std::pair<std::size_t, std::size_t>>::const_iterator batchIt = batch.begin();
+    auto prodIt = products.begin();
+    auto batchIt = batch.begin();
 
 
     std::size_t totalSum = 0;

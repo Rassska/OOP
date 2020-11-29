@@ -15,7 +15,7 @@ int main () {
     functions.makeShop("The Veg Box", "Vyazemsky lane 5-7");
     functions.makeShop("Veg and More", "Nevsky Prospect 141");
     functions.makeShop("Natures Gift", "Vladimirsky prospect 45");
-    
+
     functions.makeProduct("Potato");      // productId = 0
     functions.makeProduct("Tomato");      // productId = 1
     functions.makeProduct("Carrot");      // productId = 2
@@ -55,29 +55,29 @@ int main () {
     functions.addProducts(/*shopId*/ 2, {/*productId*/ 7,  "Corn"},         {/*cnt*/ 20,  /*cost*/ 170});
     
     
-    // /* 3 */
-    // functions.showProductList(2);
-    // functions.setNewProductCost(2, 1, 2000);
-    // functions.showProductList(2);
+//     /* 3 */
+//     functions.showProductList(2);
+//     functions.setNewProductCost(2, 1, 2000);
+//     functions.showProductList(2);
     
-    /* 4 */
-   // functions.showMinCostProductShop(3);
+//     /* 4 */
+//    functions.showMinCostProductShop(3);
    
 
-    /* 5 */
-    // functions.showByingForFixSum(0, 15300);
+//     /* 5 */
+//     functions.showByingForFixSum(0, 15300);
 
-    // /* 6 */
-    // std::vector <std::pair< std::size_t, std::size_t>> batch_;
-    // batch_.emplace_back(6, 100);
-    // batch_.emplace_back(5, 100);
-    // batch_.emplace_back(1, 10);
-    // batch_.emplace_back(7, 10);
+//     /* 6 */
+//     std::vector <std::pair< std::size_t, std::size_t>> batch_;
+//     batch_.emplace_back(6, 100);
+//     batch_.emplace_back(5, 100);
+//     batch_.emplace_back(1, 10);
+//     batch_.emplace_back(7, 10);
 
-    // // functions.showByingBatchVeg (1, batch_);
+//     // functions.showByingBatchVeg (1, batch_);
     
-    // // /* 7 */
-    // functions.showMinBatchCost (batch_);
+//     // /* 7 */
+//     functions.showMinBatchCost (batch_);
     
 
 
