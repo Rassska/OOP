@@ -23,11 +23,19 @@ void functionality::addProducts (const std::size_t shopId, const std::pair<std::
 }
 
 void functionality::setNewProductCost(const std::size_t shopId, const std::size_t productId, const std::size_t newCost) const {
-    shopBase_[shopId]->setNewProductCost(productId, newCost);
+    try {
+        shopBase_[shopId]->setNewProductCost(productId, newCost);
+    } catch (const std::runtime_error& exp) {
+        std::cout << exp.what() << '\n';
+    }
 }
 
 void functionality::setNewProductCount(const std::size_t shopId, const std::size_t productId, const std::size_t newCnt) const {
-    shopBase_[shopId]->setNewProductCount(productId, newCnt);
+    try {
+        shopBase_[shopId]->setNewProductCount(productId, newCnt);
+    } catch (const std::runtime_error& exp) {
+        std::cout << exp.what() << '\n';
+    }
 }
 void functionality::showProductList(const size_t shopId) const {
     shopBase_[shopId]->showProductList();
@@ -39,7 +47,11 @@ void functionality::showByingForFixSum (const std::size_t shopId, const std::siz
 }
 
 void functionality::showByingBatchVeg (const std::size_t shopId, const std::vector <std::pair <std::size_t, std::size_t>>& batch) const {
-    std::cout << shopBase_[shopId]->getBatchCost(batch);
+    try {
+        std::cout << shopBase_[shopId]->getBatchCost(batch);
+    } catch (std::runtime_error& exp) {
+        std::cout << exp.what() << '\n';
+    }
 
 }
 void functionality::showMinBatchCost (const std::vector <std::pair<std::size_t, std::size_t>>& batch) const{ 
@@ -54,19 +66,27 @@ void functionality::showMinBatchCost (const std::vector <std::pair<std::size_t, 
         }
     }
 
-    std::cout << minCost << ' ' << ansShopId << '\n';
-    
+    if (minCost != std::numeric_limits<std::size_t>::max()) {
+        std::cout << minCost << ' ' << ansShopId << '\n';
+    } else {
+        std::cout << "There is no matter to set up this batch!";
+    }
 }
 
 void functionality::showMinCostProductShop (const std::size_t productId) const {
-    std::size_t minCost = std::numeric_limits<std::size_t>::max();
-    std::size_t ansShopId = std::numeric_limits<std::size_t>::max();
-   
-    for (std::size_t i = 0; i < shopBase_.size(); i++) {
-        if (shopBase_[i]->getProdCost(productId) < minCost) {
-            minCost = shopBase_[i]->getProdCost(productId);
-            ansShopId = i;
+
+        std::size_t minCost = std::numeric_limits<std::size_t>::max();
+        std::size_t ansShopId = std::numeric_limits<std::size_t>::max();
+    
+        for (std::size_t i = 0; i < shopBase_.size(); i++) {
+            if (shopBase_[i]->getProdCost(productId) < minCost) {
+                minCost = shopBase_[i]->getProdCost(productId);
+                ansShopId = i;
+            }
         }
-    }
-    std::cout << minCost << ' ' << ansShopId << '\n';
+        if (minCost != std::numeric_limits<std::size_t>::max()) {
+            std::cout << minCost << ' ' << ansShopId << '\n';
+        } else {
+            std::cout << "Didn't found such product in shop base!" << '\n';
+        }
 }

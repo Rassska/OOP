@@ -42,8 +42,8 @@ int main () {
     functions.addProducts(/*shopId*/ 1, {/*productId*/ 8,  "Beets"},        {/*cnt*/ 121, /*cost*/ 180});
     functions.addProducts(/*shopId*/ 1, {/*productId*/ 7,  "Corn"},         {/*cnt*/ 133, /*cost*/ 130});
     functions.addProducts(/*shopId*/ 1, {/*productId*/ 6,  "Radish"},       {/*cnt*/ 120, /*cost*/ 680});
-    functions.addProducts(/*shopId*/ 1, {/*productId*/ 5,  "Garlic"},       {/*cnt*/ 56,  /*cost*/ 140});
-    functions.addProducts(/*shopId*/ 1, {/*productId*/ 1,  "Tomato"},       {/*cnt*/ 77,  /*cost*/ 130});
+    functions.addProducts(/*shopId*/ 1, {/*productId*/ 5,  "Garlic"},       {/*cnt*/ 560,  /*cost*/ 140});
+    functions.addProducts(/*shopId*/ 1, {/*productId*/ 1,  "Tomato"},       {/*cnt*/ 707,  /*cost*/ 130});
 
     functions.addProducts(/*shopId*/ 2, {/*productId*/ 6,  "Radish"},       {/*cnt*/ 300, /*cost*/ 780});
     functions.addProducts(/*shopId*/ 2, {/*productId*/ 5,  "Garlic"},       {/*cnt*/ 156, /*cost*/ 154});
@@ -55,29 +55,29 @@ int main () {
     functions.addProducts(/*shopId*/ 2, {/*productId*/ 7,  "Corn"},         {/*cnt*/ 20,  /*cost*/ 170});
     
     
-//     /* 3 */
-//     functions.showProductList(2);
-//     functions.setNewProductCost(2, 1, 2000);
-//     functions.showProductList(2);
+    /* 3 */
+    // functions.showProductList(2);
+    // functions.setNewProductCost(2, 1, 2000);
+    // functions.showProductList(2);
     
-//     /* 4 */
-//    functions.showMinCostProductShop(3);
+    // /* 4 */
+    // functions.showMinCostProductShop(3);
    
 
-//     /* 5 */
-//     functions.showByingForFixSum(0, 15300);
+    // /* 5 */
+    // functions.showByingForFixSum(0, 15300);
 
-//     /* 6 */
-//     std::vector <std::pair< std::size_t, std::size_t>> batch_;
-//     batch_.emplace_back(6, 100);
-//     batch_.emplace_back(5, 100);
-//     batch_.emplace_back(1, 10);
-//     batch_.emplace_back(7, 10);
+    // /* 6 */
+    // std::vector <std::pair< std::size_t, std::size_t>> batch_;
+    // batch_.emplace_back(6, 100);
+    // batch_.emplace_back(5, 100);
+    // batch_.emplace_back(1, 10);
+    // batch_.emplace_back(7, 10);
 
-//     // functions.showByingBatchVeg (1, batch_);
+    // functions.showByingBatchVeg (2, batch_);
     
-//     // /* 7 */
-//     functions.showMinBatchCost (batch_);
+    // // /* 7 */
+    // functions.showMinBatchCost (batch_);
     
 
 

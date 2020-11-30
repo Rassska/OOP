@@ -27,25 +27,35 @@ void shop::addProducts (std::pair<std::size_t,std::string> prodIdName, std::pair
 }
 
 void shop::setNewProductCost (std::size_t productId, std::size_t newCost) {
-    std::map <std::pair<std::size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator it = products.begin();
+    auto it = products.begin();
+    bool check = false;
     while (it != products.end()) {
-        if (it->first.first == productId)
+        if (it->first.first == productId) {
             it->second.second = newCost;
+            check = true;
+        }
         it++;
     }
+    if (!check)
+        throw std::runtime_error("There is no such product to set new cost!");
 }
 
 void shop::setNewProductCount (std::size_t productId, std::size_t newCnt) {
-    std::map <std::pair<std::size_t, std::string> , std::pair <std::size_t, std::size_t>>::iterator it = products.begin();
+    auto it = products.begin();
+    bool check = false;
     while (it != products.end()) {
-        if (it->first.first == productId)
+        if (it->first.first == productId) {
             it->second.first = newCnt;
+            check = true;
+        }
         it++;
     }
+    if (!check)
+        throw std::runtime_error("There is no such product to set new count!");
 }
 
 void shop::showProductList() {
-    std::map <std::pair<size_t, std::string>, std::pair <std::size_t, std::size_t>>::iterator it = products.begin();
+    auto it = products.begin();
     std::cout << '\n' << "shopId: " << getShopId() << ' ' << getShopName() << ' ' << getShopAddress() << '\n';
     while (it != products.end()) {
         std::cout << "Id: " << it->first.first << ' ' << "Name: " << it->first.second << ' ' << "Cost: " << it->second.second << ' ' << "Count: " << it->second.first << '\n';
@@ -85,22 +95,28 @@ void shop::showByingForFixSum (std::size_t fixSum) {
 
 std::size_t shop::getBatchCost (const std::vector <std::pair<std::size_t, std::size_t>>& batch) const {
     
-    auto prodIt = products.begin();
     auto batchIt = batch.begin();
-
-
     std::size_t totalSum = 0;
+    bool check = true;
+
     while (batchIt != batch.end()) {
+        check = false;
+        auto prodIt = products.begin();
         while (prodIt != products.end()) {
-            if (prodIt->first.first == batchIt->first) {
-                if (batchIt->second > prodIt->second.first) {
+            if (prodIt->first.first == batchIt->first) { // if ids are the same
+                if (batchIt->second > prodIt->second.first) { // if the amount which requested more than existing
                     throw std::runtime_error ("The amount of vegetables less than requested!");
                 } else {
                     totalSum += prodIt->second.second * batchIt->second;
+                    check = true;
+                    break;
                 }
             }
             prodIt++;
         }
+        if (!check)
+            throw std::runtime_error("There is no some batch products in this shop!");
+
         batchIt++;
     }
     return totalSum;
@@ -116,6 +132,6 @@ std::size_t shop::getProdCost (const std::size_t prodId) const {
         }
         it++;
     }
-    
+
     return ans;
 }
