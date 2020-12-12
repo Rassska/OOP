@@ -13,7 +13,7 @@
 
 int main () {
 
-    const std::string iniFilePath = "/home/rasul/dev/OOP/IniParser/Include/inputFile.ini";
+    const std::string iniFilePath = "/home/rassska/dev/OOP/IniParser/Include/inputFile.ini";
     const std::string iniFileName = "myIniFile";
 
     inputFile myIniFile(iniFileName, iniFilePath);
