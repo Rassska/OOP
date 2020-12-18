@@ -2,13 +2,15 @@
 #include <iostream>
 #include "Vehicle/vehicle.h"
 
-class air : protected vehicle
+class air : public vehicle
 {
 private:
-    const std::size_t distanceReducer_;
+    std::size_t distanceReducer_;
 public:
+
     explicit air();
-    explicit air(std::string_view name, std::size_t speed ,std::size_t distanceReducer);
+    explicit air(std::string_view name, std::size_t speed);
+    virtual std::size_t getNewDistance(std::size_t prevDistance);
     ~air();
 };
 
