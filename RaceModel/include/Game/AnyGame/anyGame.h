@@ -14,6 +14,8 @@ public:
     explicit anyGame(std::string_view name, std::size_t duration);
     void runGame() override;
     void addRacers(ground* racer) override;
+    void addRacers(air* racer) override;
+
     ~anyGame();
     
 };

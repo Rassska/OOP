@@ -14,8 +14,8 @@ void airGame::addRacers(air* racer) {
 }
 
 void airGame::runGame() {
-
-     for (std::size_t i = 0; i < racers_.size(); i++) {
+     
+    for (std::size_t i = 0; i < racers_.size(); i++) {
         std::size_t ansTime = 0;
         std::size_t passedDistance = 0;
         air* av = dynamic_cast<air*>(racers_[i]);

@@ -8,29 +8,31 @@
 #include "Vehicle/VehicleTypes/AirTypes/carpet.h"
 #include "Vehicle/VehicleTypes/AirTypes/besom.h"
 #include "Vehicle/VehicleTypes/AirTypes/broom.h"
+#include "Game/AnyGame/anyGame.h"
 
 
 int main () {
 
 
     std::cout << "First ground race:\n"; 
-    gameEngine* gameP = new groundGame("first", 1000);
+    gameEngine* gameP = new anyGame("first", 1000);
 
     ground* centaurP = new centaur(std::string_view("centaur-Vlad"), 15, 8, 2);
     ground* bootsP = new boots(std::string_view("boots"), 6, 60, 10);
     ground* swiftCamelP = new swiftCamel(std::string_view("Camel-Ruslan"), 40, 10, 5);
 
-    // air* carpetP = new carpet(std::string_view("carp"), 1/*  */0, 3);
+    air* carpetP = new carpet(std::string_view("carp"), 10);
 
     try {
         gameP->addRacers(centaurP); // ground* centaurP = new centaur(std::string_view("Boyka"), 15, 8, 2);
         gameP->addRacers(bootsP);  //  ground* bootsP = new boots(std::string_view("Nike"), 6, 60, 10);
         gameP->addRacers(swiftCamelP);  //  ground* swiftCamelP = new swiftCamel(std::string_view("kek"), 40, 10, 5);
 
-        // gameP->addRacers(carpetP); // air* carpetP = new carpet(std::string_view("carp"), 10, 3);
+        gameP->addRacers(carpetP); // air* carpetP = new carpet(std::string_view("carp"), 10);
     }
     catch(const std::runtime_error& exp) {
         std::cout << exp.what() << '\n';
+        exit(-1);
     }
     gameP->runGame();
     gameP->showGameResult();
