@@ -13,14 +13,14 @@
 int main () {
 
 
-    std::cout <<"\n"<< "First ground race:\n"; 
+    std::cout << "First ground race:\n"; 
     gameEngine* gameP = new groundGame("first", 1000);
 
     ground* centaurP = new centaur(std::string_view("centaur-Vlad"), 15, 8, 2);
     ground* bootsP = new boots(std::string_view("boots"), 6, 60, 10);
     ground* swiftCamelP = new swiftCamel(std::string_view("Camel-Ruslan"), 40, 10, 5);
 
-    // air* carpetP = new carpet(std::string_view("carp"), 10, 3);
+    // air* carpetP = new carpet(std::string_view("carp"), 1/*  */0, 3);
 
     try {
         gameP->addRacers(centaurP); // ground* centaurP = new centaur(std::string_view("Boyka"), 15, 8, 2);
@@ -35,7 +35,14 @@ int main () {
     gameP->runGame();
     gameP->showGameResult();
 
-    std::cout << "\nSecond air race:\n";
+
+
+
+
+
+
+
+    /* std::cout << "\nSecond air race:\n";
     gameEngine* gameP2 = new airGame("first", 1000);
 
 
@@ -57,7 +64,7 @@ int main () {
     }
     gameP2->runGame();
     gameP2->showGameResult();
-    std::cout << '\n';
+    std::cout << '\n'; */
 
     
 
