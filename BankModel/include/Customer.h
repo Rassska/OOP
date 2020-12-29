@@ -10,7 +10,7 @@ protected:
     std::string addressCustomer;
     std::string passportCustomer;
 public:
-    ~Customer() = default;
+    ~Customer();
     Customer(const std::string& name, const std::string& surname);
     Customer(const Customer& a) : thisCustomerID(a.thisCustomerID), nameCustomer(a.nameCustomer), surnameCustomer(a.surnameCustomer), addressCustomer(a.addressCustomer), passportCustomer(a.passportCustomer) { } // copy ctor
     

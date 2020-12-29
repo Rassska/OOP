@@ -6,7 +6,7 @@ class Date{
 private:
     tm time;
 public:
-    Date(){}
+    Date();
     Date(int mday, int mon);
     Date(tm time);
     

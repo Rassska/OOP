@@ -10,6 +10,7 @@ public:
     ~vehicle();
     virtual std::size_t getSpeed();
     std::string_view getName();
+    virtual std::size_t calc(std::size_t distance);
     
 protected:
     std::size_t speed_;

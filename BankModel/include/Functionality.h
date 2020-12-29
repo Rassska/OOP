@@ -7,12 +7,12 @@ private:
     std::map<std::string, Bank> banks;
 public:
     void addBank(const std::string& name, long moneyLimit, long suspLimit, double percentage, double commission);
-    void addClient(const std::string& bank, Customer* client);
-    void addAccount(const std::string& bank, int clientID, const std::string& accountName);
+    void addCustomer(const std::string& bank, Customer* customer);
+    void addAccount(const std::string& bank, int customerID, const std::string& accountName);
     
-    void putMoney(const std::string& bank, int clientID);
-    void transferMoney(const std::string& bank, int clientID, int clientID2);
-    void takeMoney(const std::string& bank, int clientID);
+    void putMoney(const std::string& bank, int customerID);
+    void transferMoney(const std::string& bank, int customerID, int customerID2);
+    void takeMoney(const std::string& bank, int customerID);
     
     void cancelOperation(const std::string &bank, int ID);
     

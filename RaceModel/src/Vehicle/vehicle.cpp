@@ -14,3 +14,5 @@ std::size_t vehicle::getSpeed() {
 std::string_view vehicle::getName() {
     return name_;
 }
+
+std::size_t vehicle::calc(std::size_t distance) {return 0;} 

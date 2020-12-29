@@ -1,21 +1,21 @@
 #include <iostream>
-#include "Game/gameEngine.h"
-#include "Game/AirGame/airGame.h"
-#include "Game/GroundGame/groundGame.h"
+#include "Game/gameEngine.hpp"
+
 #include "Vehicle/VehicleTypes/GroundTypes/centaur.h"
 #include "Vehicle/VehicleTypes/GroundTypes/boots.h"
 #include "Vehicle/VehicleTypes/GroundTypes/swiftCamel.h"
 #include "Vehicle/VehicleTypes/AirTypes/carpet.h"
 #include "Vehicle/VehicleTypes/AirTypes/besom.h"
 #include "Vehicle/VehicleTypes/AirTypes/broom.h"
-#include "Game/AnyGame/anyGame.h"
+#include "Vehicle/VehicleTypes/ground.h"
+
 
 
 int main () {
 
 
-    std::cout << "First ground race:\n"; 
-    gameEngine* gameP = new anyGame("first", 1000);
+    std::cout << "The winner of first race is: "; 
+    gameEngine<vehicle>* gameP = new gameEngine<vehicle>("first", 1000);
 
     ground* centaurP = new centaur(std::string_view("centaur-Vlad"), 15, 8, 2);
     ground* bootsP = new boots(std::string_view("boots"), 6, 60, 10);
@@ -34,11 +34,8 @@ int main () {
         std::cout << exp.what() << '\n';
         exit(-1);
     }
-    gameP->runGame();
-    gameP->showGameResult();
-
-
-
+    std::cout << gameP->runGame()->getName() << '\n';
+    
 
 
 

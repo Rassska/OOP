@@ -13,6 +13,7 @@ public:
     virtual std::size_t getRestInterval();
     virtual std::size_t getRestDuration();
     virtual void changeRestDuration(std::size_t restCnt);
+    std::size_t calc(std::size_t distance) override;
     
     ~ground();
     

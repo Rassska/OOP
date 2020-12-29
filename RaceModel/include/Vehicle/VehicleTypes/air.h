@@ -11,6 +11,7 @@ public:
     explicit air();
     explicit air(std::string_view name, std::size_t speed);
     virtual std::size_t getNewDistance(std::size_t prevDistance);
+    std::size_t calc (std::size_t distance) override;
     ~air();
 };
 

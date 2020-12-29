@@ -16,7 +16,6 @@ public:
     double getCommission() const;
     double getInterestRate() const;
     std::string getNameAccount() const;
-    std::string getNameAccountString() const;
     long getMoneyAccount() const;
     bool isSuspicious() const;
     

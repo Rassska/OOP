@@ -10,7 +10,7 @@ private:
     static int bankID;
     int thisBankID;
     std::map<int, std::vector<Account*>> accounts;
-    std::vector<Customer*> clients;
+    std::vector<Customer*> customers;
     std::map<int,Command*> commands;
     
     double percentage;
@@ -25,13 +25,13 @@ public:
     double getPerc();
     double getComm();
     long getMoneyLim();
-    std::vector<Customer*> getClients();
+    std::vector<Customer*> getCustomers();
     std::vector<Account*> getAccounts(int cID);
     
     int setCommandID();
     
-    void addClient(Customer* client);
-    void addAccount(int clientID, std::size_t val);
+    void addCustomer(Customer* customer);
+    void addAccount(int customerID, const std::string& val);
     
     void transferMoney(int cID, int cID2);
     void putMoney(int cID, long money);
@@ -40,12 +40,12 @@ public:
     void command(Command* c);
     void cancel(int ID);
     
-    void CheckUpdateSusp(int clientID, Account* acc);
+    void CheckUpdateSusp(int customerID, Account* acc);
     void dailyIR();
     void monthlyIR();
     
-    bool isClient(int clientID);
-    void printClients();
+    bool isCustomer(int customerID);
+    void printCustomers();
     void printAccounts();
     void printAll();
 };

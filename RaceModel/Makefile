@@ -1,5 +1,5 @@
-prog: besom.o broom.o carpet.o bactrianCamel.o boots.o centaur.o swiftCamel.o air.o ground.o vehicle.o main.o gameEngine.o airGame.o groundGame.o anyGame.o
-	g++ besom.o broom.o carpet.o bactrianCamel.o boots.o centaur.o swiftCamel.o air.o ground.o vehicle.o main.o gameEngine.o airGame.o groundGame.o anyGame.o -o prog
+prog: besom.o broom.o carpet.o bactrianCamel.o boots.o centaur.o swiftCamel.o air.o ground.o vehicle.o main.o gameEngine.o
+	g++ besom.o broom.o carpet.o bactrianCamel.o boots.o centaur.o swiftCamel.o air.o ground.o vehicle.o main.o gameEngine.o -o prog
 
 besom.o: src/Vehicle/VehicleTypes/AirTypes/besom.cpp
 	g++ -c -std=c++2a -Iinclude src/Vehicle/VehicleTypes/AirTypes/besom.cpp
@@ -34,17 +34,8 @@ vehicle.o: src/Vehicle/vehicle.cpp
 main.o: src/main.cpp
 	g++ -c -std=c++2a -Iinclude src/main.cpp
 
-gameEngine.o: src/Game/gameEngine.cpp
-	g++ -c -std=c++2a -Iinclude src/Game/gameEngine.cpp
-
-airGame.o: src/Game/AirGame/airGame.cpp
-	g++ -c -std=c++2a -Iinclude src/Game/AirGame/airGame.cpp
-
-groundGame.o: src/Game/GroundGame/groundGame.cpp
-	g++ -c -std=c++2a -Iinclude src/Game/GroundGame/groundGame.cpp
-
-anyGame.o: src/Game/AnyGame/anyGame.cpp
-	g++ -c -std=c++2a -Iinclude src/Game/AnyGame/anyGame.cpp
+gameEngine.o: Game/gameEngine.hpp
+	g++ -c -std=c++2a -Iinclude Game/gameEngine.hpp
 
 clean:
 	rm -rf *.o prog
