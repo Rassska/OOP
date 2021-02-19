@@ -1,11 +1,11 @@
 #pragma once
-#include "IRemoveManager.h"
+#include "IRemove.h"
 #include "BackUp.h"
 #include <iostream>
 #include <vector>
 #include <string>
 
-class RemoveDateAlg : public IRemoveManager
+class RemoveDateAlg : public IRemove
 {
 private:
     time_t m_DateLimit;

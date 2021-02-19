@@ -5,13 +5,13 @@
 #include <vector>
 #include "BackUp.h"
 
-class IRemoveManager
+class IRemove
 {
 private:
     
 public:
-    IRemoveManager(){};
+    IRemove(){};
     virtual std::size_t getDiff(const BackUp& currBackUp){};
-    ~IRemoveManager(){};
+    ~IRemove(){};
 };
 

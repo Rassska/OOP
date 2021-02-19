@@ -1,11 +1,11 @@
 #pragma once
-#include "IRemoveManager.h"
+#include "IRemove.h"
 #include "BackUp.h"
 #include <iostream>
 #include <vector>
 #include <string>
 
-class RemoveAmountAlg : public IRemoveManager
+class RemoveAmountAlg : public IRemove
 {
 private:
     std::size_t m_LimitCnt;

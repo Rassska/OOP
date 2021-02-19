@@ -3,7 +3,7 @@
 #include <vector>
 #include "BackUp.h"
 #include "RestorePoint.h"
-#include "IRemoveManager.h"
+#include "IRemove.h"
 #include <chrono>
 
 std::size_t BackUp::m_BackUpId = 0;

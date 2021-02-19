@@ -6,7 +6,7 @@
 #include "RemoveAmountAlg.h"
 #include "RemoveDateAlg.h"
 #include "RemoveSizeAlg.h"
-#include "IRemoveManager.h"
+#include "IRemove.h"
 #include "RemoveHybridAlg.h"
 #include <chrono>
 #include "SaveManager.h"
@@ -39,27 +39,27 @@ int main() {
         
 
        /*[Tested]*/ 
-        // IRemoveManager* currAmountRemAlg = new RemoveAmountAlg(/* cntLimit ==*/ 1);
+        // IRemove* currAmountRemAlg = new RemoveAmountAlg(/* cntLimit ==*/ 1);
         // simpleBackUp->removeUnSuitablePoints(currAmountRemAlg->getDiff(*(simpleBackUp)));
         
         /*[Tested]*/
         // time_t time = std::time(nullptr) + 3;
-        // IRemoveManager* currDateRemAlg = new RemoveDateAlg(time);
+        // IRemove* currDateRemAlg = new RemoveDateAlg(time);
         // simpleBackUp->removeUnSuitablePoints(currDateRemAlg->getDiff(*(simpleBackUp)));
     
         /*[Tested]*/
-        // IRemoveManager* currSizeRemAlg = new RemoveSizeAlg(std::size_t(26));
+        // IRemove* currSizeRemAlg = new RemoveSizeAlg(std::size_t(26));
         // simpleBackUp->removeUnSuitablePoints(currSizeRemAlg->getDiff(*(simpleBackUp)));
     
         /*[Tested]*/
-        // std::vector <IRemoveManager*> givenHybridAlgs;
-        // IRemoveManager* currSizeRemAlg = new RemoveSizeAlg(std::size_t(25));
-        // IRemoveManager* currAmountRemAlg = new RemoveAmountAlg(/* cntLimit ==*/ 2);
+        // std::vector <IRemove*> givenHybridAlgs;
+        // IRemove* currSizeRemAlg = new RemoveSizeAlg(std::size_t(25));
+        // IRemove* currAmountRemAlg = new RemoveAmountAlg(/* cntLimit ==*/ 2);
 
         // givenHybridAlgs.push_back(currSizeRemAlg);
         // givenHybridAlgs.push_back(currAmountRemAlg);
 
-        // IRemoveManager* currHybridRemAlg = new RemoveHybridAlg(givenHybridAlgs, true);
+        // IRemove* currHybridRemAlg = new RemoveHybridAlg(givenHybridAlgs, true);
         // simpleBackUp->removeUnSuitablePoints(currHybridRemAlg->getDiff(*(simpleBackUp)));
 
         // std::cout << simpleBackUp->getRestPointCnt();

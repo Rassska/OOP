@@ -1,18 +1,18 @@
 #pragma once
-#include "IRemoveManager.h"
+#include "IRemove.h"
 #include "BackUp.h"
 #include <iostream>
 #include <vector>
 #include <string>
 
-class RemoveHybridAlg : public IRemoveManager
+class RemoveHybridAlg : public IRemove
 {
 private:
     bool m_IsAllConditions;
-    std::vector<IRemoveManager*> m_GivenHybridAlgs;
+    std::vector<IRemove*> m_GivenHybridAlgs;
 
 public:
-    RemoveHybridAlg(std::vector<IRemoveManager*>& currHybridAlgs, bool isAllConditions);
+    RemoveHybridAlg(std::vector<IRemove*>& currHybridAlgs, bool isAllConditions);
     std::size_t getDiff(const BackUp& currBackUp) override;
     ~RemoveHybridAlg();
 };
