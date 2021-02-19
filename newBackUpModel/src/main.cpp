@@ -39,17 +39,21 @@ int main() {
         
 
        /*[Tested]*/ 
-        // IRemove* currAmountRemAlg = new RemoveAmountAlg(/* cntLimit ==*/ 1);
-        // simpleBackUp->removeUnSuitablePoints(currAmountRemAlg->getDiff(*(simpleBackUp)));
+
+        IRemove* currAmountRemAlg = new RemoveAmountAlg(/* cntLimit ==*/ 1);
+        std::size_t restorePointCnt = currAmountRemAlg->getDiff(*(simpleBackUp)); // getting cnt of removed Restore Points
+        simpleBackUp->removeUnSuitablePoints(restorePointCnt);
         
         /*[Tested]*/
         // time_t time = std::time(nullptr) + 3;
         // IRemove* currDateRemAlg = new RemoveDateAlg(time);
-        // simpleBackUp->removeUnSuitablePoints(currDateRemAlg->getDiff(*(simpleBackUp)));
+        // std::size_t restorePointCnt = currAmountRemAlg->getDiff(*(simpleBackUp));
+        // simpleBackUp->removeUnSuitablePoints(restorePointCnt);
     
         /*[Tested]*/
         // IRemove* currSizeRemAlg = new RemoveSizeAlg(std::size_t(26));
-        // simpleBackUp->removeUnSuitablePoints(currSizeRemAlg->getDiff(*(simpleBackUp)));
+        // std::size_t restorePointCnt = currAmountRemAlg->getDiff(*(simpleBackUp));
+        // simpleBackUp->removeUnSuitablePoints(restorePointCnt);
     
         /*[Tested]*/
         // std::vector <IRemove*> givenHybridAlgs;
@@ -60,7 +64,8 @@ int main() {
         // givenHybridAlgs.push_back(currAmountRemAlg);
 
         // IRemove* currHybridRemAlg = new RemoveHybridAlg(givenHybridAlgs, true);
-        // simpleBackUp->removeUnSuitablePoints(currHybridRemAlg->getDiff(*(simpleBackUp)));
+        // std::size_t restorePointCnt = currAmountRemAlg->getDiff(*(simpleBackUp));
+        // simpleBackUp->removeUnSuitablePoints(restorePointCnt);
 
         // std::cout << simpleBackUp->getRestPointCnt();
 

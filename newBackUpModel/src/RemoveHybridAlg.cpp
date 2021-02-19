@@ -2,10 +2,10 @@
 #include <string>
 #include <vector>
 #include "RemoveHybridAlg.h"
+#include "IRemove.h"
 
 
-
-RemoveHybridAlg::RemoveHybridAlg(std::vector<IRemoveManager*>& currHybridAlgs, bool isAllConditions) {
+RemoveHybridAlg::RemoveHybridAlg(std::vector<IRemove*>& currHybridAlgs, bool isAllConditions) {
     m_IsAllConditions = isAllConditions;
     m_GivenHybridAlgs = currHybridAlgs;
 }
