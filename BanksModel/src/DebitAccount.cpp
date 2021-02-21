@@ -19,7 +19,7 @@ void DebitAccount::DepositTransaction(time_t currTime, double amountOfDepositMon
 }
 void DebitAccount::transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer) {
     if (m_currentAmount >= amountOfMoneyToTransfer) {
-        ToTrasferAccount->DepositTransaction(amountOfMoneyToTransfer);
+        ToTrasferAccount->DepositTransaction(currTime, amountOfMoneyToTransfer);
         m_currentAmount -= amountOfMoneyToTransfer;
     } else {
         throw std::runtime_error("The requested amount is higher than the balance!");

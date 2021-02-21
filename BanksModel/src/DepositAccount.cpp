@@ -34,13 +34,13 @@ void DepositAccount::DepositTransaction(time_t currTime, double amountOfDepositM
 void DepositAccount::transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer) {
     if (m_currentAmount >= amountOfMoneyToTransfer) {
         if (m_depositTime <= currTime) {
-            account->DepositTransaction(amountOfMoneyToTransfer);
+            ToTrasferAccount->DepositTransaction(currTime, amountOfMoneyToTransfer);
             m_currentAmount -= amountOfMoneyToTransfer;
         } else {
             throw std::runtime_error("The time of the deposit has not expired!");
         }
     } else {
-        throw std::runtime_error("The requested amount is higher than the balance!")
+        throw std::runtime_error("The requested amount is higher than the balance!");
     }
 }
 
@@ -52,7 +52,7 @@ void DepositAccount::WithdrawalTransaction(time_t currTime, double amountOfMoney
             throw std::runtime_error("The time of the deposit has not expired!");
         }
     } else {
-        throw std::runtime_error("The requested amount is higher than the balance!")
+        throw std::runtime_error("The requested amount is higher than the balance!");
     }
 }
 

@@ -10,7 +10,8 @@
 #include "Transaction.h"
 #include "TransferTransaction.h"
 #include "WithdrawalTransaction.h"
-
+#include <time.h>
+#include <ctime>
 const double baseAmountOfMoney = 5000;
 
 
@@ -35,7 +36,6 @@ int main () {
         Account* currAccount2 = new CreditAccount();
         Account* currAccount3 = new DepositAccount();
 
-        double baseAmountOfMoney = 5000;
 
         currBankChain->createAccount(currBank, client1, currAccount1);
         currBankChain->createAccount(currBank, client2, currAccount2);
@@ -43,10 +43,10 @@ int main () {
 
         time_t currTime = std::time(nullptr) + 1100;
         Transaction* currTransaction1 = new DepositTransaction(100000, currTime);
-        currBankChain->createTransaction(currBank, currAccount1, client1, currTransaction1);
+        currBankChain->createTransaction(currBank, client1, currAccount1, currTransaction1);
 
         Transaction* currTransaction2 = new TransferTransaction(10000, currAccount2, currTime);
-        currBankChain->createTransaction(currBank, currAccount1, client1, currTransaction2);
+        currBankChain->createTransaction(currBank, client1, currAccount1, currTransaction2);
 
         Transaction* currTransaction3 = new WithdrawalTransaction(100, currTime);
         

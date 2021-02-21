@@ -18,7 +18,7 @@ void CreditAccount::setInterestPercent(double currPercent) {
 
 void CreditAccount::transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer){
     if (m_currentAmount > amountOfMoneyToTransfer) {
-        ToTrasferAccount->DepositTransaction(amountOfMoneyToTransfer);
+        ToTrasferAccount->DepositTransaction(currTime, amountOfMoneyToTransfer);
         m_currentAmount -= amountOfMoneyToTransfer;
     } else {
         throw std::runtime_error("Credit limit exceeded to transfer!");
