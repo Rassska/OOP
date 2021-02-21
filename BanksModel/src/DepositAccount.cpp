@@ -21,7 +21,7 @@ void DepositAccount::setInterestPercent(double currPercent) {
         m_interestPercent = 0.05;
     } else if (m_currentAmount >= 100000 && m_currentAmount < 500000) {
         m_interestPercent = 0.07;
-    } else {
+    } else if (m_currentAmount >= 500000) {
         m_interestPercent = 0.1;
     }
 }
