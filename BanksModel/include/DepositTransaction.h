@@ -8,9 +8,9 @@
 class DepositTransaction : public Transaction
 {
 private:
-    
+    double m_amountOfDepositMoney;
 public:
-    DepositTransaction();
+    DepositTransaction(double amountOfDepositMoney);
     void doo(double amountOfMoney, Account* account) override;
     void undo(double amountOfMoney, Account* account) override;
     ~DepositTransaction();

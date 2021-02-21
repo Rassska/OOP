@@ -7,9 +7,9 @@
 class TransferTransaction : public Transaction
 {
 private:
-    
+    double m_amountOfTransferMoney;
 public:
-    TransferTransaction();
+    TransferTransaction(double amountOfTransferMoney);
     void doo(double amountOfMoney, Account* account) override;
     void undo(double amountOfMoney, Account* account) override;
     ~TransferTransaction();

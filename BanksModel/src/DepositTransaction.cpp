@@ -4,7 +4,9 @@
 #include <string>
 #include "Account.h"
 
-DepositTransaction::DepositTransaction() = default;
+DepositTransaction::DepositTransaction(double amountOfDepositMoney) : 
+    m_amountOfDepositMoney(amountOfDepositMoney)
+{}
 
 
 void DepositTransaction::doo(double amountOfMoney, Account* account){

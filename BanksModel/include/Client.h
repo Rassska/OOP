@@ -23,6 +23,7 @@ public:
     void setAddress(std::string_view address);
     void setPassport(std::string_view passport);
     void createAccount(Account* account);
+    void createTransaction(Account* account, Transaction* transaction);
 
     ~Client();
 };

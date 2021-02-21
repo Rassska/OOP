@@ -39,4 +39,8 @@ void Client::createAccount(Account* account) {
     m_accounts.push_back(account);
 }
 
+void Client::createTransaction(Account* account, Transaction* transaction) {
+    transaction->do(account);
+}
+
 Client::~Client() = default;

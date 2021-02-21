@@ -41,11 +41,11 @@ int main () {
         currBankChain->createAccount(currBank, client2, currAccount2, baseAmountOfMoney);
         currBankChain->createAccount(currBank, client3, currAccount3, baseAmountOfMoney);
 
-        
-        Transaction* currTransaction1 = new DepositTransaction(baseAmountOfMoney);
+        Transaction* currTransaction1 = new DepositTransaction(10000);
+        currBankChain->createTransaction(currBank, currAccount1, client1, currTransaction1);
         Transaction* currTransaction2 = new TransferTransaction(baseAmountOfMoney);
         Transaction* currTransaction3 = new WithdrawalTransaction(baseAmountOfMoney);
-        currBankChain->createTransaction(currBank, currAccount1, currTransaction1);
+        
         
         
 

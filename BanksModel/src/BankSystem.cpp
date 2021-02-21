@@ -15,4 +15,7 @@ void BankSystem::addClient(Bank* bank, Client* client) {
 void BankSystem::createAccount(Bank* bank, Client* client, Account* account, double baseAmountOfMoney) {
     bank->createAccount(client, account, baseAmountOfMoney);
 }
+void BankSystem::createTransaction(Bank* bank, Client* client, Account* account, Transaction* transaction) {
+    bank->createTransaction(client, account, transaction);
+}
 BankSystem::~BankSystem() = default;
