@@ -4,6 +4,7 @@
 #include <string>
 #include "Client.h"
 #include "Account.h"
+#include "Transaction.h"
 class Bank
 {
 private:
@@ -17,7 +18,7 @@ public:
     Bank();
     Bank(std::string_view bankName, double debitPercent, double depositPercent, double creditCommission, double doubtLimit);
     void addClient(Client* client);
-    void createAccount(Client* client, Account* account, double baseAmountOfMoney);
+    void createAccount(Client* client, Account* account);
     void createTransaction(Client* client, Account* account, Transaction* transaction);
     ~Bank();
 };

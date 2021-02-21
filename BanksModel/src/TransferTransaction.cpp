@@ -4,15 +4,15 @@
 #include <string>
 #include "Account.h"
 
-TransferTransaction::TransferTransaction(double amountOfTrasferMoney) : 
-    m_amountOfTrasferMoney(amountOfTrasferMoney)
+TransferTransaction::TransferTransaction(double amountOfTrasferMoney, Account* account, time_t transactionCreatedTime) : 
+    m_amountOfTrasferMoney(amountOfTrasferMoney), m_account(account), m_transactionCreatedTime(transactionCreatedTime)
 {}
 
 
-void TransferTransaction::doo(double amountOfMoney, Account* account){
-
+void TransferTransaction::doo(Account* account){
+    account->transferTransaction();
 }
-void TransferTransaction::undo(double amountOfMoney, Account* account) {
+void TransferTransaction::undo(Account* account) {
     
 }
 

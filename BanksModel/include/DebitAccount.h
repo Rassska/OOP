@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "Account.h"
-
+#include <time.h>
 class DebitAccount : public Account
 {
 private:
@@ -14,10 +14,9 @@ public:
     DebitAccount();
     void setCommisionPercent(double currCommision) override;
     void setInterestPercent(double currPercent) override;
-    void setBaseAmountOfMoney(double currAmountOfMoney) override;
     
-    void transferTransaction() override;
-    void WithdrawalTransaction() override;
-    void DepositTransaction() override;
+    void transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer) override;
+    void WithdrawalTransaction(time_t currTime, double amountOfMoneyToWithdrawal) override;
+    void DepositTransaction(time_t currTime, double amountOfMoneyToDeposit) override;
     ~DebitAccount();
 };

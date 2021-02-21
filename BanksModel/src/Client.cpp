@@ -40,7 +40,7 @@ void Client::createAccount(Account* account) {
 }
 
 void Client::createTransaction(Account* account, Transaction* transaction) {
-    transaction->do(account);
+    transaction->doo(account);
 }
 
 Client::~Client() = default;

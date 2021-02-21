@@ -10,8 +10,8 @@ private:
     
 public:
     Transaction();
-    virtual void doo(double amountOfMoney, Account* account);
-    virtual void undo(double amountOfMoney, Account* account);
+    virtual void doo(Account* account);
+    virtual void undo(Account* account);
     ~Transaction();
 };
 

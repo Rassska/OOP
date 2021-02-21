@@ -9,9 +9,10 @@ class DepositTransaction : public Transaction
 {
 private:
     double m_amountOfDepositMoney;
+    time_t m_transactionCreatedTime;
 public:
-    DepositTransaction(double amountOfDepositMoney);
-    void doo(double amountOfMoney, Account* account) override;
-    void undo(double amountOfMoney, Account* account) override;
+    DepositTransaction(double amountOfDepositMoney, time_t transactionCreatedTime);
+    void doo(Account* account) override;
+    void undo(Account* account) override;
     ~DepositTransaction();
 };

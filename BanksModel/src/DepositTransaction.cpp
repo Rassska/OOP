@@ -4,16 +4,16 @@
 #include <string>
 #include "Account.h"
 
-DepositTransaction::DepositTransaction(double amountOfDepositMoney) : 
-    m_amountOfDepositMoney(amountOfDepositMoney)
+DepositTransaction::DepositTransaction(double amountOfDepositMoney, time_t transactionCreatedTime) : 
+    m_amountOfDepositMoney(amountOfDepositMoney), m_transactionCreatedTime(transactionCreatedTime)
 {}
 
 
-void DepositTransaction::doo(double amountOfMoney, Account* account){
-    account->
+void DepositTransaction::doo(Account* account){
+    account->DepositTransaction(m_transactionCreatedTime, m_amountOfDepositMoney);
 }
-void DepositTransaction::undo(double amountOfMoney, Account* account) {
-    account->m_currentAmount -= amountOfMoney;
+void DepositTransaction::undo(Account* account) {
+    
 }
 
 DepositTransaction::~DepositTransaction() = default;

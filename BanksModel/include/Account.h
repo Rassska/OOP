@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include <time.h>
 
 class Account
 {
@@ -11,13 +11,13 @@ private:
 
 public:
     Account();
-    virtual void transferTransaction();
-    virtual void WithdrawalTransaction();
-    virtual void DepositTransaction();
+    virtual void transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer);
+    virtual void WithdrawalTransaction(time_t currTime, double amountOfMoneyToWithdrawal);
+    virtual void DepositTransaction(time_t currTime, double amountOfMoneyToDeposit);
     
     virtual void setCommisionPercent(double currCommision);
     virtual void setInterestPercent(double currPercent);
-    virtual void setBaseAmountOfMoney(double currAmountOfMoney);
+
     ~Account();
 };
 

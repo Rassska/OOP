@@ -4,15 +4,15 @@
 #include <string>
 #include "Account.h"
 
-WithdrawalTransaction::WithdrawalTransaction(double amountOfWithdrawalMoney) : 
-    m_amountOfWithdrawalMoney(amountOfWithdrawalMoney)
+WithdrawalTransaction::WithdrawalTransaction(double amountOfWithdrawalMoney, time_t transactionCreatedTime) : 
+    m_amountOfWithdrawalMoney(amountOfWithdrawalMoney), m_transactionCreatedTime(transactionCreatedTime)
 {}
 
 
-void WithdrawalTransaction::doo(double amountOfMoney, Account* account){
+void WithdrawalTransaction::doo(Account* account){
     
 }
-void WithdrawalTransaction::undo(double amountOfMoney, Account* account) {
+void WithdrawalTransaction::undo(Account* account) {
     
 }
 

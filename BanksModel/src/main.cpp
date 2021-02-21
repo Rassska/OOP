@@ -37,14 +37,18 @@ int main () {
 
         double baseAmountOfMoney = 5000;
 
-        currBankChain->createAccount(currBank, client1, currAccount1, baseAmountOfMoney);
-        currBankChain->createAccount(currBank, client2, currAccount2, baseAmountOfMoney);
-        currBankChain->createAccount(currBank, client3, currAccount3, baseAmountOfMoney);
+        currBankChain->createAccount(currBank, client1, currAccount1);
+        currBankChain->createAccount(currBank, client2, currAccount2);
+        currBankChain->createAccount(currBank, client3, currAccount3);
 
-        Transaction* currTransaction1 = new DepositTransaction(10000);
+        time_t currTime = std::time(nullptr) + 1100;
+        Transaction* currTransaction1 = new DepositTransaction(100000, currTime);
         currBankChain->createTransaction(currBank, currAccount1, client1, currTransaction1);
-        Transaction* currTransaction2 = new TransferTransaction(baseAmountOfMoney);
-        Transaction* currTransaction3 = new WithdrawalTransaction(baseAmountOfMoney);
+
+        Transaction* currTransaction2 = new TransferTransaction(10000, currAccount2, currTime);
+        currBankChain->createTransaction(currBank, currAccount1, client1, currTransaction2);
+
+        Transaction* currTransaction3 = new WithdrawalTransaction(100, currTime);
         
         
         

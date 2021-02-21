@@ -7,7 +7,7 @@
 Transaction::Transaction() = default;
 
 
-void Transaction::doo(double amountOfMoney, Account* account){};
-void Transaction::undo(double amountOfMoney, Account* account) {};
+void Transaction::doo(Account* account){};
+void Transaction::undo(Account* account) {};
 
 Transaction::~Transaction() = default;

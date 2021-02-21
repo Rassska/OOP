@@ -13,7 +13,7 @@ public:
     BankSystem();
     void addBank(Bank* bank);
     void addClient(Bank* bank, Client* client);
-    void createAccount(Bank* bank, Client* client, Account* account, double baseAmountOfMoney);
+    void createAccount(Bank* bank, Client* client, Account* account);
     void createTransaction(Bank* bank, Client* client, Account* account, Transaction* transaction);
     ~BankSystem();
 };

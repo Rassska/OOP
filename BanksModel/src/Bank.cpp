@@ -14,14 +14,13 @@ void Bank::addClient(Client* client) {
     m_clientDataBase.push_back(client);
 }
 
-void Bank::createAccount(Client* client, Account* account, double baseAmountOfMoney) {
+void Bank::createAccount(Client* client, Account* account) {
     client->createAccount(account);
-    account->setBaseAmountOfMoney(baseAmountOfMoney);
     account->setCommisionPercent(m_creditCommisionPercent);
     account->setInterestPercent(m_debitPercent);
 }
 
 void Bank::createTransaction(Client* client, Account *account, Transaction* transaction) {
-    client->
+    client->createTransaction(account, transaction);
 }
 Bank::~Bank() = default;

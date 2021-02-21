@@ -10,10 +10,11 @@ Account::Account() {
     m_accountId++;
 }
 
-void transferTransaction(){};
-void WithdrawalTransaction(){};
-void DepositTransaction(){};
-void setCommisionPercent(double currCommision){};
-void setBaseAmountOfMoney(double currAmountOfMoney){};
+void Account::transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer){};
+void Account::WithdrawalTransaction(time_t currTime, double amountOfMoneyToWithdrawal){};
+void Account::DepositTransaction(time_t currTime, double amountOfMoneyToDeposit){};
+
+void Account::setCommisionPercent(double currCommision){};
+void Account::setInterestPercent(double currPercent){};
 
 Account::~Account() = default;

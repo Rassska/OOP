@@ -8,9 +8,10 @@ class WithdrawalTransaction : public Transaction
 {
 private:
     double m_amountOfWithdrawalMoney;
+    time_t m_transactionCreatedTime;
 public:
-    WithdrawalTransaction(double amountOfWithdrawalMoney);
-    void doo(double amountOfMoney, Account* account) override;
-    void undo(double amountOfMoney, Account* account) override;
+    WithdrawalTransaction(double amountOfWithdrawalMoney, time_t transactionCreatedTime);
+    void doo(Account* account) override;
+    void undo(Account* account) override;
     ~WithdrawalTransaction();
 };
