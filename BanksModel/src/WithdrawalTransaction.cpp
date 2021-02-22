@@ -10,7 +10,7 @@ WithdrawalTransaction::WithdrawalTransaction(double amountOfWithdrawalMoney, tim
 
 
 void WithdrawalTransaction::doo(Account* account){
-    
+    account->WithdrawalTransaction(m_transactionCreatedTime, m_amountOfWithdrawalMoney);
 }
 void WithdrawalTransaction::undo(Account* account) {
     

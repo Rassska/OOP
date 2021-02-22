@@ -12,6 +12,7 @@ private:
     double m_interestPercent;
 public:
     CreditAccount();
+
     void setCommisionPercent(double currCommision) override;
     void setInterestPercent(double currPercent) override;
     
@@ -19,6 +20,11 @@ public:
     void transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer) override;
     void WithdrawalTransaction(time_t currTime, double amountOfMoneyToWithdrawal) override;
     void DepositTransaction(time_t currTime, double amountOfMoneyToDeposit) override;
+
+    
+    double getAmountOfMoney() const override;
+    double getInterestPercent() const override;
+    
 
     ~CreditAccount();
 };

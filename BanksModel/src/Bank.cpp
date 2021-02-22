@@ -20,7 +20,7 @@ void Bank::createAccount(Client* client, Account* account) {
     account->setInterestPercent(m_debitPercent);
 }
 
-void Bank::createTransaction(Client* client, Account *account, Transaction* transaction) {
-    client->createTransaction(account, transaction);
+void Bank::createTransaction(Account *account, Transaction* transaction) {
+    transaction->doo(account);
 }
 Bank::~Bank() = default;

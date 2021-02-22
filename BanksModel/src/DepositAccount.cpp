@@ -55,6 +55,10 @@ void DepositAccount::WithdrawalTransaction(time_t currTime, double amountOfMoney
         throw std::runtime_error("The requested amount is higher than the balance!");
     }
 }
+double DepositAccount::getAmountOfMoney() const {
+    return m_currentAmount;
+}
 
 
+double DepositAccount::getInterestPercent() const {return m_interestPercent;}
 DepositAccount::~DepositAccount() = default;

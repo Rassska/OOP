@@ -7,8 +7,8 @@
 class Account
 {
 private:
-    static std::size_t m_accountId;
-
+    static std::size_t m_accountGeneralId;
+    std::size_t m_accountId;
 public:
     Account();
     virtual void transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer);
@@ -17,6 +17,11 @@ public:
     
     virtual void setCommisionPercent(double currCommision);
     virtual void setInterestPercent(double currPercent);
+
+    virtual double getAmountOfMoney() const;
+    virtual double getInterestPercent() const;
+    
+    std::size_t getAccountId() const;
 
     ~Account();
 };

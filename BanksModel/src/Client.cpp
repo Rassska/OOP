@@ -43,4 +43,8 @@ void Client::createTransaction(Account* account, Transaction* transaction) {
     transaction->doo(account);
 }
 
+std::vector<Account*> Client::getAccountsList() const {
+    return m_accounts;
+}
+
 Client::~Client() = default;

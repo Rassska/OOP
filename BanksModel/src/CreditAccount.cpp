@@ -36,7 +36,10 @@ void CreditAccount::WithdrawalTransaction(time_t currTime, double amountOfMoneyT
     }
 }
 
+double CreditAccount::getAmountOfMoney() const {
+    return m_currentAmount;
+}
 
-
+double CreditAccount::getInterestPercent() const {return m_interestPercent;}
 CreditAccount::~CreditAccount() = default;
 

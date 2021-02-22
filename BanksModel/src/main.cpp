@@ -12,7 +12,13 @@
 #include "WithdrawalTransaction.h"
 #include <time.h>
 #include <ctime>
+#include "AccountFactory/AccountFactory.h"
+#include "AccountFactory/DepositAccountFactory.h"
+#include "AccountFactory/CreditAccountFactory.h"
+#include "AccountFactory/DebitAccountFactory.h"
+
 const double baseAmountOfMoney = 5000;
+time_t currTime = std::time(nullptr) + 1100;
 
 
 
@@ -32,25 +38,98 @@ int main () {
         currBankChain->addClient(currBank, client2);
         currBankChain->addClient(currBank, client3);
 
-        Account* currAccount1 = new DebitAccount();
-        Account* currAccount2 = new CreditAccount();
-        Account* currAccount3 = new DepositAccount();
+        // Client 1
+        AccountFactory* currAccountFactory = new CreditAccountFactory();
+        currBankChain->createAccount(currBank, client1, currAccountFactory->createAccount());
+
+        currAccountFactory = new DebitAccountFactory();
+        currBankChain->createAccount(currBank, client1, currAccountFactory->createAccount());
+
+        currAccountFactory = new DepositAccountFactory();
+        currBankChain->createAccount(currBank, client1, currAccountFactory->createAccount());
 
 
-        currBankChain->createAccount(currBank, client1, currAccount1);
-        currBankChain->createAccount(currBank, client2, currAccount2);
-        currBankChain->createAccount(currBank, client3, currAccount3);
+        //Client 2
 
-        time_t currTime = std::time(nullptr) + 1100;
-        Transaction* currTransaction1 = new DepositTransaction(100000, currTime);
-        currBankChain->createTransaction(currBank, client1, currAccount1, currTransaction1);
+        currAccountFactory = new CreditAccountFactory();
+        currBankChain->createAccount(currBank, client2, currAccountFactory->createAccount());
 
-        Transaction* currTransaction2 = new TransferTransaction(10000, currAccount2, currTime);
-        currBankChain->createTransaction(currBank, client1, currAccount1, currTransaction2);
+        currAccountFactory = new DebitAccountFactory();
+        currBankChain->createAccount(currBank, client2, currAccountFactory->createAccount());
 
-        Transaction* currTransaction3 = new WithdrawalTransaction(100, currTime);
+        currAccountFactory = new DepositAccountFactory();
+        currBankChain->createAccount(currBank, client2, currAccountFactory->createAccount());
+
+
+
+
+
+    
         
+        //! [Tested: DebitAccount -> DepositTransaction]
+
+        //  Transaction* currTransaction1 = new DepositTransaction(100000, currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[1], currTransaction1);
+        //? std::cout << client1->getAccountsList()[1]->getAmountOfMoney();
+        //? exit(0);
+
+        //! [Tested:: DebitAccount -> TransferTransaction]
+        //  Transaction* currTransaction2 = new TransferTransaction(10000, client2->getAccountsList()[1], currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[1], currTransaction2);
+        //? std::cout << client1->getAccountsList()[1]->getAmountOfMoney();
+        //? exit(0);
+
+
+        //! [Tested:: DebitAccount -> WithdrawalTransaction]
+        //  Transaction* currTransaction3 = new WithdrawalTransaction(1000000, currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[1], currTransaction3);
+        //? std::cout << client1->getAccountsList()[1]->getAmountOfMoney();
+        //? exit(0);
+
+        //! [Tested:: CreditAccount -> DepositTransaction]
+        //  Transaction* currTransaction4 = new DepositTransaction(10000, currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[0], currTransaction4);
+        //? std::cout << client1->getAccountsList()[0]->getAmountOfMoney();
+        //? exit(0);
+
+        //! [Tested:: CreditAccount -> TransferTransaction]
+        //  Transaction* currTransaction5 = new TransferTransaction(2000, client1->getAccountsList()[1], currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[0], currTransaction5);
+        //? std::cout << client1->getAccountsList()[0]->getAmountOfMoney() << '\n' <<client1->getAccountsList()[1]->getAmountOfMoney();
+        //? exit(0);
+
+        //! [Tested:: CreditAccount -> DepositTransaction]
+        //  Transaction* currTransaction6 = new DepositTransaction(10000, currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[0], currTransaction6);
+        //? std::cout << client1->getAccountsList()[0]->getAmountOfMoney();
+        //? exit(0);
+
+        //! [Tested:: DepositAccount -> DepositTransaction]
+        //  Transaction* currTransaction7 = new DepositTransaction(100000, currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[2], currTransaction7);
+        //? std::cout << client1->getAccountsList()[2]->getAmountOfMoney() << '\n' << client1->getAccountsList()[2]->getInterestPercent();
+        //? exit(0);
+
+        //! [Tested:: DepositAccount -> TransferTransaction]
+        //  Transaction* currTransaction8 = new TransferTransaction(10000, client1->getAccountsList()[1], currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[2], currTransaction8);
+        //? std::cout << client1->getAccountsList()[2]->getAmountOfMoney() << '\n' << client1->getAccountsList()[1]->getAmountOfMoney();
+        //? exit(0);
+
+        //! [Tested:: DepositAccount -> TransferTransaction]
+        //  Transaction* currTransaction9 = new WithdrawalTransaction(10000, currTime);
+        //  currBankChain->createTransaction(currBank, client1->getAccountsList()[2], currTransaction9);
+        //? std::cout << client1->getAccountsList()[2]->getAmountOfMoney();
+        //? exit(0);
+
         
+
+
+
+
+
+
+
         
 
 

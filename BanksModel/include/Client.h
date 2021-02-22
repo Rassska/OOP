@@ -24,6 +24,7 @@ public:
     void setPassport(std::string_view passport);
     void createAccount(Account* account);
     void createTransaction(Account* account, Transaction* transaction);
+    std::vector<Account*> getAccountsList() const;
 
     ~Client();
 };

@@ -8,6 +8,7 @@
 class DepositAccount : public Account
 {
 private:
+    
     double m_currentAmount;
     double m_commision;
     double m_interestPercent;
@@ -15,12 +16,18 @@ private:
 
 public:
     DepositAccount();
+    
     void setCommisionPercent(double currCommision) override;
     void setInterestPercent(double currPercent) override;
+    
 
     void transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer) override;
     void WithdrawalTransaction(time_t currTime, double amountOfMoneyToWithdrawal) override;
     void DepositTransaction(time_t currTime, double amountOfMoneyToDeposit) override;
+
+    double getAmountOfMoney() const override;
+    double getInterestPercent() const override;
+
     ~DepositAccount();
 };
 

@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include "DebitAccount.h"
-#include "Account.h"
 
 DebitAccount::DebitAccount() = default;
 
@@ -34,5 +33,9 @@ void DebitAccount::WithdrawalTransaction(time_t currTime, double amountOfMoneyTo
     }
 }
 
+double DebitAccount::getAmountOfMoney() const {
+    return m_currentAmount;
+}
+double DebitAccount::getInterestPercent() const {return m_interestPercent;}
 
 DebitAccount::~DebitAccount() = default;
