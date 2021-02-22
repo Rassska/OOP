@@ -36,6 +36,11 @@ void DebitAccount::WithdrawalTransaction(time_t currTime, double amountOfMoneyTo
 double DebitAccount::getAmountOfMoney() const {
     return m_currentAmount;
 }
+
+void DebitAccount::calculateInterest(time_t currTime) {
+    m_currentFrozenAmount += currTime / 100 * m_interestPercent / 365;
+}
+
 double DebitAccount::getInterestPercent() const {return m_interestPercent;}
 
 DebitAccount::~DebitAccount() = default;

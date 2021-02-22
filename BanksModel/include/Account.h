@@ -20,7 +20,8 @@ public:
 
     virtual double getAmountOfMoney() const;
     virtual double getInterestPercent() const;
-    
+    virtual void calculateInterest(time_t currTime);
+
 
     std::size_t getAccountId() const;
 

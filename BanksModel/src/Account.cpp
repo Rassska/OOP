@@ -20,4 +20,5 @@ void Account::setInterestPercent(double currPercent){};
 double Account::getAmountOfMoney() const{return 0;};
 std::size_t Account::getAccountId() const {return m_accountId;};
 double Account::getInterestPercent() const {return 0;}
+void Account::calculateInterest(time_t currTime) {};
 Account::~Account() = default;

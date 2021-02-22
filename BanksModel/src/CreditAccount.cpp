@@ -40,6 +40,9 @@ double CreditAccount::getAmountOfMoney() const {
     return m_currentAmount;
 }
 
+void CreditAccount::calculateInterest(time_t currTime) {
+    m_currentFrozenAmount -= currTime / 100 * m_commision / 365;
+}
 double CreditAccount::getInterestPercent() const {return m_interestPercent;}
 CreditAccount::~CreditAccount() = default;
 

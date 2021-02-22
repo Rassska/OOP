@@ -59,6 +59,10 @@ double DepositAccount::getAmountOfMoney() const {
     return m_currentAmount;
 }
 
+void DepositAccount::calculateInterest(time_t currTime) {
+    m_currentFrozenAmount += currTime / 100 * m_interestPercent / 365;
+}
+
 
 double DepositAccount::getInterestPercent() const {return m_interestPercent;}
 DepositAccount::~DepositAccount() = default;

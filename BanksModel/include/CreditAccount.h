@@ -8,6 +8,7 @@ class CreditAccount : public Account
 {
 private:
     double m_currentAmount;
+    double m_currentFrozenAmount;
     double m_commision;
     double m_interestPercent;
 public:
@@ -20,7 +21,7 @@ public:
     void transferTransaction(time_t currTime, Account* ToTrasferAccount, double amountOfMoneyToTransfer) override;
     void WithdrawalTransaction(time_t currTime, double amountOfMoneyToWithdrawal) override;
     void DepositTransaction(time_t currTime, double amountOfMoneyToDeposit) override;
-
+    void calculateInterest(time_t currTime) override;
     
     double getAmountOfMoney() const override;
     double getInterestPercent() const override;

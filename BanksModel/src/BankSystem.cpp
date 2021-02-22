@@ -21,4 +21,7 @@ void BankSystem::createTransaction(Bank* bank, Account* account, Transaction* tr
 void BankSystem::cancelTransaction(Bank* bank, Account* account, Transaction* transaction) {
     bank->cancelTransaction(account, transaction);
 }
+void BankSystem::calculateInterestOrCommission(Bank* bank, time_t currTime) {
+    
+}
 BankSystem::~BankSystem() = default;

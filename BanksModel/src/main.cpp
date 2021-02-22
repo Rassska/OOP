@@ -118,9 +118,9 @@ int main () {
         //? std::cout << client1->getAccountsList()[2]->getAmountOfMoney();
         //? exit(0);
 
+
+        // currBankChain->calculateInterestOrCommission(currBank, currTime);
         
-
-
 
     }
     catch (std::exception& exp) {

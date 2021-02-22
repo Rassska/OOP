@@ -21,5 +21,6 @@ public:
     void createAccount(Client* client, Account* account);
     void createTransaction(Account* account, Transaction* transaction);
     void cancelTransaction(Account* account, Transaction* transaction);
+    void calculateInterestOrCommission(time_t currTime);
     ~Bank();
 };

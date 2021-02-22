@@ -18,6 +18,7 @@ void Bank::createAccount(Client* client, Account* account) {
     client->createAccount(account);
     account->setCommisionPercent(m_creditCommisionPercent);
     account->setInterestPercent(m_debitPercent);
+    m_clientDataBase.push_back(client);
 }
 
 void Bank::createTransaction(Account *account, Transaction* transaction) {
@@ -26,5 +27,14 @@ void Bank::createTransaction(Account *account, Transaction* transaction) {
 
 void Bank::cancelTransaction(Account* account, Transaction* transaction) {
     transaction->undo(account);
+}
+
+void Bank::calculateInterestOrCommission(time_t currTime) {
+    
+    for (std::size_t i = 0; i < m_clientDataBase.size(); i++) {
+        for (std::size_t j = 0; j < m_clientDataBase[i]->getAccountsList().size(); j++) {
+            m_clientDataBase[i]->getAccountsList()[j]->calculateInterest(currTime);
+        }
+    }
 }
 Bank::~Bank() = default;
