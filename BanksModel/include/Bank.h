@@ -20,5 +20,6 @@ public:
     void addClient(Client* client);
     void createAccount(Client* client, Account* account);
     void createTransaction(Account* account, Transaction* transaction);
+    void cancelTransaction(Account* account, Transaction* transaction);
     ~Bank();
 };

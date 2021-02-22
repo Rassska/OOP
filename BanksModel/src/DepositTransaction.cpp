@@ -13,7 +13,7 @@ void DepositTransaction::doo(Account* account){
     account->DepositTransaction(m_transactionCreatedTime, m_amountOfDepositMoney);
 }
 void DepositTransaction::undo(Account* account) {
-    
+    account->DepositTransaction(m_transactionCreatedTime, -m_amountOfDepositMoney);
 }
 
 DepositTransaction::~DepositTransaction() = default;

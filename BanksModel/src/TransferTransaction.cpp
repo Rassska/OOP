@@ -13,7 +13,7 @@ void TransferTransaction::doo(Account* account){
     account->transferTransaction(m_transactionCreatedTime, m_account, m_amountOfTransferMoney);
 }
 void TransferTransaction::undo(Account* account) {
-    
+    account->transferTransaction(m_transactionCreatedTime, m_account, -m_amountOfTransferMoney);
 }
 
 TransferTransaction::~TransferTransaction() = default;

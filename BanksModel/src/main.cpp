@@ -61,10 +61,6 @@ int main () {
         currBankChain->createAccount(currBank, client2, currAccountFactory->createAccount());
 
 
-
-
-
-    
         
         //! [Tested: DebitAccount -> DepositTransaction]
 
@@ -123,17 +119,6 @@ int main () {
         //? exit(0);
 
         
-
-
-
-
-
-
-
-        
-
-
-
 
 
 

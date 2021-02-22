@@ -18,4 +18,7 @@ void BankSystem::createAccount(Bank* bank, Client* client, Account* account) {
 void BankSystem::createTransaction(Bank* bank, Account* account, Transaction* transaction) {
     bank->createTransaction(account, transaction);
 }
+void BankSystem::cancelTransaction(Bank* bank, Account* account, Transaction* transaction) {
+    bank->cancelTransaction(account, transaction);
+}
 BankSystem::~BankSystem() = default;

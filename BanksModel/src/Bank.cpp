@@ -23,4 +23,8 @@ void Bank::createAccount(Client* client, Account* account) {
 void Bank::createTransaction(Account *account, Transaction* transaction) {
     transaction->doo(account);
 }
+
+void Bank::cancelTransaction(Account* account, Transaction* transaction) {
+    transaction->undo(account);
+}
 Bank::~Bank() = default;

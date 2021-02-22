@@ -21,6 +21,7 @@ public:
     virtual double getAmountOfMoney() const;
     virtual double getInterestPercent() const;
     
+
     std::size_t getAccountId() const;
 
     ~Account();
