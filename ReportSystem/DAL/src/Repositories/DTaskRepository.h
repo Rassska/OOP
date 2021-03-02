@@ -17,5 +17,6 @@ public:
     void deletee(const std::size_t currTaskID) override;
     void update(DEntitiesAbstraction* newEntity, const std::size_t currTaskID) override;
     std::vector <DEntitiesAbstraction*> getAll() override;
+    void showEntitiesList() override;
     ~DTaskRepository();
 };

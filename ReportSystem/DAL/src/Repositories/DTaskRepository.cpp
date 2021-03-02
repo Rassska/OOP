@@ -1,5 +1,5 @@
 #include "DAL/src/Repositories/DTaskRepository.h"
-
+#include "DAL/src/Entities/DTask.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -28,5 +28,15 @@ void DTaskRepository::deletee(const std::size_t currTaskID) {
 }
 void DTaskRepository::update(DEntitiesAbstraction* newEntity, const std::size_t currTaskID) { 
 
+}
+
+void DTaskRepository::showEntitiesList() {
+
+    std::cout << "TaskID" << "/" << "AuthorID" << "/" << "CreatedTime"<< '\n';
+    for (std::size_t i = 0; i < m_CurrTasks.size(); i++) {
+        std::cout << m_CurrTasks[i]->getTaskID() << ' ' << m_CurrTasks[i]->getAuthorID() << ' ' << m_CurrTasks[i]->getCreatedTime();
+
+    }
+    std::cout << "\n";
 }
 

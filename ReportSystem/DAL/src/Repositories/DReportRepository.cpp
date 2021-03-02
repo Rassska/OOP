@@ -69,5 +69,13 @@ DEntitiesAbstraction* DReportRepository::getEntity(std::size_t entityID) {
     }
     return temp;
 } 
+void DReportRepository::showEntitiesList() {
+
+    std::cout << "ReportID" << "/" << "AuthorID" << "/" << "CreatedTime" << '\n';
+    for (std::size_t i = 0; i < m_CurrReports.size(); i++) {
+        std::cout << m_CurrReports[i]->getReportID() << ' hggggggh' << m_CurrReports[i]->getAuthorID() << ' ' << m_CurrReports[i]->getCreatedTime();
+    }
+    std::cout << "\n";
+}
 
 

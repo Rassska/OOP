@@ -15,5 +15,6 @@ public:
     void deletee(const std::size_t currTeamReportID) override;
     void update(DEntitiesAbstraction* newEntity, const std::size_t currTeamReportID) override;
     std::vector <DEntitiesAbstraction*> getAll() override;
+    void showEntitiesList() override;
     ~DTeamReportRepository();
 };

@@ -22,3 +22,13 @@ void DTeamReportRepository::deletee(const std::size_t currTaskID) {
 void DTeamReportRepository::update(DEntitiesAbstraction* newEntity, const std::size_t currTaskID) { 
 
 }
+
+void DTeamReportRepository::showEntitiesList() {
+
+    std::cout << "TeamReportID" << "/" << "Name" << "/" << "CreatedTime"<< '\n'; 
+    for (std::size_t i = 0; i < m_CurrTeamReports.size(); i++) {
+        std::cout << m_CurrTeamReports[i]->getTeamReportID() << ' ' << m_CurrTeamReports[i]->getName() << ' ' << m_CurrTeamReports[i]->getCreatedTime();
+
+    }
+    std::cout << "\n";
+}

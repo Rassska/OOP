@@ -19,5 +19,6 @@ public:
     virtual void update(DEntitiesAbstraction* newEntity, std::size_t currEntityID);
     virtual std::vector <DEntitiesAbstraction*> getAll(); 
     virtual DEntitiesAbstraction* getEntity(std::size_t entityID);
+    virtual void showEntitiesList();
     ~DRepositoriesAbstraction();
 };

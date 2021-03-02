@@ -17,6 +17,6 @@ public:
     void update(DEntitiesAbstraction* newReport, std::size_t currReportID) override;
     std::vector <DEntitiesAbstraction*> getAll() override;
     DEntitiesAbstraction* getEntity(std::size_t entityID) override;
-    
+    void showEntitiesList() override;
     ~DReportRepository();
 };
