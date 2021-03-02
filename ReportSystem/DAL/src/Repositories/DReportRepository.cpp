@@ -51,7 +51,7 @@ void DReportRepository::update(DEntitiesAbstraction* newReport, const std::size_
     if (currNewReport != nullptr) { 
         for (std::size_t i = 0; i < m_CurrReports.size(); i++) {
             if (m_CurrReports[i]->getReportID() == currReportID) {
-                std::swap(m_CurrReports[i], currNewReport);
+                m_CurrReports[i] = currNewReport;
             }
         }
     }

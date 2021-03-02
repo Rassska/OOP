@@ -20,3 +20,12 @@ std::size_t DTask::getAuthorID() const {return m_AuthorID;}
 std::string_view DTask::getTaskDescription() const {return m_Description;}
 std::string_view DTask::getTaskName() const {return m_Name;}
 std::string_view DTask::getTaskState() const {return m_TaskState;}
+
+DTask* DTask::operator=(const DTask* other) {
+    m_AuthorID = other->m_AuthorID;
+    m_TaskID = other->m_TaskID;
+    m_CreatedTime = other->m_CreatedTime;
+    m_Name = other->m_Name;
+    m_Description = other->m_Description;
+    m_TaskState = other->m_TaskState;
+}

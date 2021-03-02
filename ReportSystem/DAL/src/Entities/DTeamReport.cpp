@@ -19,3 +19,11 @@ time_t DTeamReport::getCreatedTime() const {return m_CreatedTime;}
 std::string_view DTeamReport::getDescription() const {return m_Description;}
 std::string_view DTeamReport::getName() const {return m_Name;}
 std::vector<DReport> DTeamReport::getReportList() const {return m_ReportsList;}
+
+DTeamReport* DTeamReport::operator=(const DTeamReport* other) {
+    m_ReportsList = other->m_ReportsList;
+    m_TeamReportID = other->m_TeamReportID;
+    m_CreatedTime = other->m_CreatedTime;
+    m_Name = other->m_Name;
+    m_Description = other->m_Description;
+}

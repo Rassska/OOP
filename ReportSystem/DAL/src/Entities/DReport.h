@@ -22,6 +22,7 @@ public:
     void setAuthorId(std::size_t currAuthorID);
     void setComment(std::string_view currComment);
 
+    DReport* operator=(const DReport* other);
     std::size_t getReportID() const;
     time_t getCreatedTime() const;
     std::vector<std::size_t> getFinishedTasksID() const;

@@ -19,4 +19,12 @@ std::size_t DReport::getAuthorID() const {return m_AuthorID;}
 std::string_view DReport::getComment() const {return m_Comment;}
 std::size_t DReport::getReportID() const {return m_ReportID;}
 
+DReport* DReport::operator=(const DReport* other) {
+    m_AuthorID = other->m_AuthorID;
+    m_Comment = other->m_Comment;
+    m_CreatedTime = other->m_CreatedTime;
+    m_ReportID = other->m_ReportID;
+    m_FinishedTasksID = other->m_FinishedTasksID;
+}
+
 DReport::~DReport() = default;

@@ -4,3 +4,5 @@
 DEntitiesAbstraction::DEntitiesAbstraction() = default;
 
 DEntitiesAbstraction::~DEntitiesAbstraction() = default;
+
+DEntitiesAbstraction* DEntitiesAbstraction::operator=(const DEntitiesAbstraction* other) {};

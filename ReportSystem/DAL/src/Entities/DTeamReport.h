@@ -25,6 +25,8 @@ public:
     void setName(std::string_view currName);
     void setReportList(std::vector<DReport> currReportList);
 
+    
+    DTeamReport* operator=(const DTeamReport* other);
     std::size_t getTeamReportID() const;
     time_t getCreatedTime() const;
     std::string_view getDescription() const;

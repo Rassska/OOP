@@ -21,3 +21,12 @@ std::string_view DWorker::getName() const {return m_Name;}
 std::size_t DWorker::getLeaderID () const {return m_LeaderID;}
 std::vector <std::size_t> DWorker::getHierarchy() const {return m_Hierarchy;}
 std::vector <std::size_t> DWorker::getTasksList() const {return m_TasksList;}
+
+DWorker* DWorker::operator=(const DWorker* other) {
+    m_WorkerID = other->m_WorkerID;
+    m_CreatedTime = other->m_CreatedTime;
+    m_Name = other->m_Name;
+    m_LeaderID = other->m_LeaderID;
+    m_Hierarchy = other->m_Hierarchy;
+    m_TasksList = other->m_TasksList;
+}

@@ -26,6 +26,7 @@ public:
     void setHierarchy(std::vector<std::size_t> currHierarchy);
     void setTasksList(std::vector<std::size_t> currTasksList);
 
+    DWorker* operator=(const DWorker* other);
     std::size_t getWorkerID() const;
     time_t getCreatedTime() const;
     std::string_view getName() const;

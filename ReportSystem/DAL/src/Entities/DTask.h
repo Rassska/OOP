@@ -24,6 +24,8 @@ public:
     void setName(std::string_view currName);
     void setTaskState(std::string_view currTaskState);
 
+    DTask* operator=(const DTask* other);
+
     std::size_t getTaskID() const;
     time_t getCreatedTime() const;
     std::size_t getAuthorID() const;
