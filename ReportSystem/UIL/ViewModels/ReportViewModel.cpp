@@ -8,4 +8,4 @@ ReportViewModel::ReportViewModel(std::size_t authorID, std::string_view comment,
     m_FinishedTasksID = finishedTasks;
 }
     
-ReportViewModel::~ReportViewModel();
+ReportViewModel::~ReportViewModel() = default;

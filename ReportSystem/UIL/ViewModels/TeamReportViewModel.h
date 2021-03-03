@@ -17,6 +17,5 @@ private:
     
 public:
     TeamReportViewModel(std::string_view name, std::string_view description, std::vector <ReportViewModel*> reports);
-    
     ~TeamReportViewModel();
 };

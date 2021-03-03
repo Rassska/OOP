@@ -1,5 +1,5 @@
 #include "BLL/src/DTOEntities/DTWorker.h"
-
+#include <ctime>
 DTWorker::DTWorker(std::string_view name, std::size_t leaderID, std::vector <std::size_t> hierarchy, std::vector <std::size_t> tasks) {
     m_Hierarchy = hierarchy;
     m_Name = name;
@@ -9,4 +9,4 @@ DTWorker::DTWorker(std::string_view name, std::size_t leaderID, std::vector <std
     
 }
 
-DTWorker::~DTWorker();
+DTWorker::~DTWorker() = default;

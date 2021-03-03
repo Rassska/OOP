@@ -1,5 +1,5 @@
 #include "BLL/src/DTOEntities/DTTeamReport.h"
-
+#include <ctime>
 
 
 DTTeamReport::DTTeamReport(std::string_view name, std::string_view description, std::vector <DTReport*> reports){
@@ -9,4 +9,4 @@ DTTeamReport::DTTeamReport(std::string_view name, std::string_view description, 
     m_CreatedTime = std::time(nullptr);
 }
     
-DTTeamReport::~DTTeamReport();
+DTTeamReport::~DTTeamReport() = default;

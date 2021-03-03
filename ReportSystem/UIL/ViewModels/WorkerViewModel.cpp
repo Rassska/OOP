@@ -8,4 +8,4 @@ WorkerViewModel::WorkerViewModel(std::string_view name, std::size_t leaderID, st
     
 }
 
-WorkerViewModel::~WorkerViewModel();
+WorkerViewModel::~WorkerViewModel() = default;

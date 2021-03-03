@@ -7,4 +7,4 @@ DTTask::DTTask(std::size_t authorID, std::string_view description, std::string_v
     m_Description = description;
     m_CreatedTime = std::time(nullptr);
 }
-DTTask::~DTTask();
+DTTask::~DTTask() = default;

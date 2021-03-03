@@ -6,4 +6,11 @@ TaskViewModel::TaskViewModel(std::size_t authorID, std::string_view description,
     m_TaskState = taskState;
     m_Description = description;
 }
-TaskViewModel::~TaskViewModel();
+
+
+std::size_t TaskViewModel::getAuthorID() const {return m_AuthorID;}
+std::string_view TaskViewModel::getTaskDescription() const {return m_Description;}
+std::string_view TaskViewModel::getTaskName() const {return m_Name;}
+std::string_view TaskViewModel::getTaskState() const {return m_TaskState;}
+
+TaskViewModel::~TaskViewModel() = default;

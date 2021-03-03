@@ -15,7 +15,7 @@ private:
     std::vector <std::size_t> m_TasksList;
     
 public:
-    WorkerViewModel(std::string_view name, std::size_t leaderID, std::vector <std::size_t> hierarchy, std::vector <std::size_t> tasks);
+    WorkerViewModel(std::string_view name, std::size_t leaderID, std::vector <std::size_t> hierarchy = {}, std::vector <std::size_t> tasks = {});
 
     ~WorkerViewModel();
 };

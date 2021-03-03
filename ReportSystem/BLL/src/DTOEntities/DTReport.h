@@ -16,6 +16,10 @@ protected:
 
 public:
     DTReport(std::size_t authorID, std::string_view comment, std::vector<std::size_t> finishedTasks);
-    
+    std::size_t getReportID() const;
+    time_t getCreatedTime() const;
+    std::vector<std::size_t> getFinishedTasksID() const;
+    std::size_t getAuthorID() const;
+    std::string_view getComment() const;
     ~DTReport();
 };
