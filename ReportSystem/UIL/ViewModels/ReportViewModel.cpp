@@ -9,3 +9,7 @@ ReportViewModel::ReportViewModel(std::size_t authorID, std::string_view comment,
 }
     
 ReportViewModel::~ReportViewModel() = default;
+
+std::vector<std::size_t> ReportViewModel::getFinishedTasksID() const {return m_FinishedTasksID;}
+std::size_t ReportViewModel::getAuthorID() const {return m_AuthorID;}
+std::string_view ReportViewModel::getComment() const {return m_Comment;}

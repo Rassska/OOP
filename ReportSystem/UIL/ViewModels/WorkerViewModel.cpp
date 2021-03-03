@@ -8,4 +8,8 @@ WorkerViewModel::WorkerViewModel(std::string_view name, std::size_t leaderID, st
     
 }
 
+std::string_view WorkerViewModel::getName() const {return m_Name;}
+std::size_t WorkerViewModel::getLeaderID () const {return m_LeaderID;}
+std::vector <std::size_t> WorkerViewModel::getHierarchy() const {return m_Hierarchy;}
+std::vector <std::size_t> WorkerViewModel::getTasksList() const {return m_TasksList;}
 WorkerViewModel::~WorkerViewModel() = default;

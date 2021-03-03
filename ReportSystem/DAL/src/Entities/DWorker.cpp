@@ -4,7 +4,12 @@
 #include <vector>
 
 
-DWorker::DWorker() = default;
+DWorker:: DWorker(std::string_view name, std::size_t leaderID, std::vector <std::size_t> hierarchy, std::vector <std::size_t> tasks) {
+    m_Hierarchy = hierarchy;
+    m_Name = name;
+    m_TasksList = tasks;
+    m_LeaderID = leaderID;
+}
 DWorker::~DWorker() = default;
 
 

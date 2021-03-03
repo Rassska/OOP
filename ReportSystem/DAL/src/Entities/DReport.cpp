@@ -4,7 +4,11 @@
 #include <string>
 
 
-DReport::DReport () = default;
+DReport::DReport(std::size_t authorID, std::string_view comment, std::vector<std::size_t> finishedTasks) {
+    m_AuthorID = authorID;
+    m_Comment = comment;
+    m_FinishedTasksID = finishedTasks;
+}
 
 
 void DReport::setReportID(std::size_t currReportID) { m_ReportID = currReportID;}

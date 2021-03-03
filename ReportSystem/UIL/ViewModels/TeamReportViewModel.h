@@ -18,4 +18,8 @@ private:
 public:
     TeamReportViewModel(std::string_view name, std::string_view description, std::vector <ReportViewModel*> reports);
     ~TeamReportViewModel();
+
+    std::vector <ReportViewModel*> getReportList() const;
+    std::string_view getName() const;
+    std::string_view getDescription() const;
 };

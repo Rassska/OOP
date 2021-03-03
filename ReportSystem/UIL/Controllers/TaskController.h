@@ -5,12 +5,16 @@
 #include <vector>
 #include "DAL/src/Repositories/DTaskRepository.h"
 #include "UIL/ViewModels/TaskViewModel.h"
+#include "BLL/src/Services/TaskService.h"
+
 class TaskController
 {
 private:
-    DTaskRepository m_TaskRepository;
+    DTTaskRepository m_TaskRepository;
 public:
     TaskController();
     void addTask(TaskViewModel* currTaskViewModel);
+    void update(TaskViewModel* currTaskViewModel, std::size_t changeTaskID);
+    void showTasksList();
     ~TaskController();
 };

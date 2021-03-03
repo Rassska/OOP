@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include "DAL/Abstractions/DEntitiesAbstraction.h"
-#include "DAL/src/Entities/DReport.h"
+#include "DAL/src/Entities/DTeamReport.h"
 
 class DTeamReport : public DEntitiesAbstraction
 {
@@ -14,16 +14,16 @@ private:
     time_t m_CreatedTime;
     std::string_view m_Description;
     std::string_view m_Name;
-    std::vector <DReport> m_ReportsList;
+    std::vector <DTeamReport> m_ReportsList;
     
 public:
-    DTeamReport();
+    DTeamReport(std::string_view name, std::string_view description, std::vector <DTeamReport> reports);
 
     void setTeamReportID(std::size_t teamReportID);
     void setCreatedTime(time_t currCreatedTime);
     void setDescription(std::string_view currDescription);
     void setName(std::string_view currName);
-    void setReportList(std::vector<DReport> currReportList);
+    void setReportList(std::vector<DTeamReport> currReportList);
 
     
     DTeamReport* operator=(const DTeamReport* other);
@@ -31,7 +31,7 @@ public:
     time_t getCreatedTime() const;
     std::string_view getDescription() const;
     std::string_view getName() const;
-    std::vector<DReport> getReportList() const;
+    std::vector<DTeamReport> getReportList() const;
     
 
     ~DTeamReport();

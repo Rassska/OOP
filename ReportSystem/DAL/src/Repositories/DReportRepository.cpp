@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
-
+#include <ctime>
 
 DReportRepository::DReportRepository() = default;
 DReportRepository::~DReportRepository() = default;
@@ -24,8 +24,9 @@ void DReportRepository::create(DEntitiesAbstraction* currReport) {
 
     DReport* currRep = dynamic_cast<DReport*>(currReport);
     currRep->setReportID(getAll().size() + 1);
-    m_CurrReports.push_back(currRep);
+    currRep->setCreatedTime(std::time(nullptr));
 
+    m_CurrReports.push_back(currRep);
 }
 
 void DReportRepository::deletee(std::size_t currReportID) {

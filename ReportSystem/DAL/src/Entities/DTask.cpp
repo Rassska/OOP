@@ -4,7 +4,12 @@
 #include <vector>
 
 
-DTask::DTask() = default;
+DTask::DTask(std::size_t authorID, std::string_view description, std::string_view name, std::string_view taskState) {
+    m_AuthorID = authorID;
+    m_Description = description;
+    m_Name = name;
+    m_TaskState = taskState;
+}
 DTask::~DTask() = default;
 
 void DTask::setTaskID(std::size_t currTaskID) {m_TaskID = currTaskID;}

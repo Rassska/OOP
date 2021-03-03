@@ -1,8 +1,7 @@
 #include "BLL/Abstractions/DTEntitiesAbstraction.h"
 
 
-DTEntitiesAbstraction::DTEntitiesAbstraction() = default;
+DTEntitiesAbstraction::DTEntitiesAbstraction(){};
 
-DTEntitiesAbstraction::~DTEntitiesAbstraction() = default;
+DTEntitiesAbstraction::~DTEntitiesAbstraction(){};
 
-DTEntitiesAbstraction* DTEntitiesAbstraction::operator=(const DTEntitiesAbstraction* other) {};

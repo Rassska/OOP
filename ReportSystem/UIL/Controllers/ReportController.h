@@ -5,6 +5,7 @@
 #include <vector>
 #include "BLL/src/Services/ReportService.h"
 #include "UIL/ViewModels/TaskViewModel.h"
+#include "UIL/ViewModels/ReportViewModel.h"
 class ReportController
 {
 private:
@@ -12,7 +13,8 @@ private:
 public:
 
     ReportController();
-    void addTask(TaskViewModel* currTaskViewModel);
+    void addReport(ReportViewModel* currReportViewModel);
+    void showAllActiveReports();
     ~ReportController();
 };
 

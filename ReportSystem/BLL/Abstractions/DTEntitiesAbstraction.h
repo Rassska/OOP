@@ -9,8 +9,7 @@ class DTEntitiesAbstraction
 protected:
     
 public:
-    DTEntitiesAbstraction();
-    DTEntitiesAbstraction* operator=(const DTEntitiesAbstraction* other);
+    explicit DTEntitiesAbstraction();
     virtual ~DTEntitiesAbstraction();
     
 };

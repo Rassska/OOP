@@ -6,11 +6,12 @@
 #include "BLL/Abstractions/DTRepositoriesAbstraction.h"
 #include "DAL/Abstractions/DEntitiesAbstraction.h"
 #include "DAL/src/Entities/DReport.h"
+#include "DAL/src/Repositories/DReportRepository.h"
 
 class DTReportRepository : public DTRepositoriesAbstraction
 {
 private:
-    std::vector <DReport*> m_currDALReports;
+    DReportRepository currDALReportRepo;
 public:
     DTReportRepository();
     void create(DTEntitiesAbstraction* currReport) override;

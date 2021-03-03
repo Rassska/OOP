@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "BLL/Abstractions/DTEntitiesAbstraction.h"
 
-
-class DTReport
+class DTReport : public DTEntitiesAbstraction
 {
 protected:
     std::size_t m_ReportID;

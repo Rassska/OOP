@@ -15,7 +15,7 @@ protected:
     std::string_view m_Comment;
 
 public:
-    DReport();
+    DReport(std::size_t authorID, std::string_view comment, std::vector<std::size_t> finishedTasks);
     void setReportID(std::size_t currReportID);
     void setCreatedTime(time_t currTime);
     void setFinishedTasksID(std::vector<std::size_t> currFinishedTasksID);

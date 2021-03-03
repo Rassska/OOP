@@ -12,8 +12,8 @@ private:
 public:
     DWorkerRepository();
     void create(DEntitiesAbstraction* currWorker) override;
-    void deletee(const std::size_t currWorkerID) override;
-    void update(DEntitiesAbstraction* newEntity, const std::size_t currWorkerID) override;
+    void deletee(std::size_t currWorkerID) override;
+    void update(DEntitiesAbstraction* newEntity, std::size_t currWorkerID) override;
     std::vector <DEntitiesAbstraction*> getAll() override;
     void showEntitiesList() override;
     

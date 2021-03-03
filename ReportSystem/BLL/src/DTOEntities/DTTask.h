@@ -2,8 +2,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "BLL/Abstractions/DTEntitiesAbstraction.h"
 
-class DTTask 
+class DTTask : public DTEntitiesAbstraction
 {
 private:
     std::size_t m_TaskID;
@@ -16,5 +17,11 @@ private:
 
 public:
     DTTask(std::size_t authorID, std::string_view description, std::string_view name, std::string_view taskState);
+
+    std::size_t getAuthorID() const;
+    std::string_view getTaskDescription() const;
+    std::string_view getTaskName() const;
+    std::string_view getTaskState() const;
+    
     ~DTTask();
 };

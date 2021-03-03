@@ -3,8 +3,9 @@
 #include <string>
 #include <vector>
 #include "BLL/src/DTOEntities/DTReport.h"
+#include "BLL/Abstractions/DTEntitiesAbstraction.h"
 
-class DTTeamReport 
+class DTTeamReport : public DTEntitiesAbstraction
 {
     
 private:
@@ -17,6 +18,10 @@ private:
     
 public:
     DTTeamReport(std::string_view name, std::string_view description, std::vector <DTReport*> reports);
+
+    std::vector <DTReport*> getReportList() const;
+    std::string_view getName() const;
+    std::string_view getDescription() const;
     
     ~DTTeamReport();
 };

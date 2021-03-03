@@ -17,7 +17,7 @@ private:
     std::vector <std::size_t> m_TasksList;
     
 public:
-    DWorker();
+    DWorker(std::string_view name, std::size_t leaderID, std::vector <std::size_t> hierarchy, std::vector <std::size_t> tasks);
 
     void setWorkerID(std::size_t currWorkerID);
     void setCreatedTime(time_t currTime);

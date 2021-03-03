@@ -16,6 +16,9 @@ protected:
 
 public:
     ReportViewModel(std::size_t authorID, std::string_view comment, std::vector<std::size_t> finishedTasks);
+    std::vector<std::size_t> getFinishedTasksID() const;
+    std::size_t getAuthorID() const;
+    std::string_view getComment() const;
     
     ~ReportViewModel();
 };

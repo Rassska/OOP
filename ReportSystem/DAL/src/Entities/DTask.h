@@ -16,7 +16,7 @@ private:
     std::string_view m_TaskState; 
 
 public:
-    DTask();
+    DTask(std::size_t authorID, std::string_view description, std::string_view name, std::string_view taskState);
     void setTaskID(std::size_t currTaskID);
     void setCreatedTime(time_t currCreatedTime);
     void setAuthorID(std::size_t currAuthorID);
