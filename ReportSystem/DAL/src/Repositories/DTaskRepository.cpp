@@ -34,7 +34,7 @@ void DTaskRepository::showEntitiesList() {
 
     std::cout << "TaskID" << "/" << "AuthorID" << "/" << "CreatedTime"<< '\n';
     for (std::size_t i = 0; i < m_CurrTasks.size(); i++) {
-        std::cout << m_CurrTasks[i]->getTaskID() << ' ' << m_CurrTasks[i]->getAuthorID() << ' ' << m_CurrTasks[i]->getCreatedTime();
+        std::cout << m_CurrTasks[i]->getTaskID() << ' ' << m_CurrTasks[i]->getAuthorID() << ' ' << m_CurrTasks[i]->getCreatedTime() << '\n';
 
     }
     std::cout << "\n";

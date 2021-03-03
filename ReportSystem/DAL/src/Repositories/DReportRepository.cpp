@@ -30,12 +30,15 @@ void DReportRepository::create(DEntitiesAbstraction* currReport) {
 
 void DReportRepository::deletee(std::size_t currReportID) {
     std::size_t currIndex = 0;
+    bool flag = false;
+    
     for (std::size_t i = 0; i < m_CurrReports.size(); i++) {
         if (m_CurrReports[i]->getReportID() == currReportID) {
             m_CurrReports.erase(m_CurrReports.begin() + i);
             currIndex = i;
+            flag = true;
         }
-        if (currIndex) {
+        if (flag) {
             for (std::size_t i = currIndex; i < m_CurrReports.size(); i++) {
                 m_CurrReports[i]->setReportID(m_CurrReports[i]->getReportID() - 1);
             }
@@ -73,9 +76,8 @@ void DReportRepository::showEntitiesList() {
 
     std::cout << "ReportID" << "/" << "AuthorID" << "/" << "CreatedTime" << '\n';
     for (std::size_t i = 0; i < m_CurrReports.size(); i++) {
-        std::cout << m_CurrReports[i]->getReportID() << ' hggggggh' << m_CurrReports[i]->getAuthorID() << ' ' << m_CurrReports[i]->getCreatedTime();
+        std::cout << m_CurrReports[i]->getReportID() << ' ' << m_CurrReports[i]->getAuthorID() << ' ' << m_CurrReports[i]->getCreatedTime() << '\n';
     }
-    std::cout << "\n";
 }
 
 
