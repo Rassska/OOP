@@ -16,13 +16,6 @@
 
 int main() {
     
-    DEntitiesAbstraction* currEntity = new DReport();
-    DEntitiesAbstraction* currEntity2 = new DReport();
-    DRepositoriesAbstraction* currRepo = new DReportRepository();
     
-    currRepo->create(currEntity);
-    currRepo->create(currEntity2);
-    
-    currRepo->showEntitiesList();
     
 }
