@@ -69,6 +69,29 @@ int main() {
 
     reportController->showAllActiveReports();
     TeamReportViewModel* currTeamReportViewModel = new TeamReportViewModel("firstTeamReport", "about resolving problems", currReports);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     // teamReportController->addTeamReport(currTeamReportViewModel);
 
     

@@ -17,7 +17,7 @@
 int main() {
     
     try { 
-        BackUpModel* currModel = new BackUpModel();
+        // BackUpModel* currModel = new BackUpModel();
         BackUp* simpleBackUp = new BackUp();
 
         simpleBackUp->addFilesToBackUp(std::make_pair(std::string_view ("kek"), false)); // second arg defines that file isn't in some Restore Point (this file is new)

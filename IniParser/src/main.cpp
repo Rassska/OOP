@@ -24,13 +24,13 @@ int main () {
         std::cout << exp.what() << '\n';
     }
         
-    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "StatisterTimeMs"));
-    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
-    // std::cout << get_as<int>(myIniFile.getValue("NCMD", "SampleRate"));
-    // std::cout << get_as<double>(myIniFile.getValue("COMMON", "DiskCachePath"));
-    // std::cout << get_as<long long>(myIniFile.getValue("ADC_DEV", "BufferLenSeconds"));
-    // std::cout << get_as<int>(myIniFile.getValue("COMMN", "DiskCachePath"));
-    // std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
+    std::cout << get_as<int>(myIniFile.getValue("COMMON", "StatisterTimeMs"));
+    std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
+    std::cout << get_as<int>(myIniFile.getValue("NCMD", "SampleRate"));
+    std::cout << get_as<double>(myIniFile.getValue("COMMON", "DiskCachePath"));
+    std::cout << get_as<long long>(myIniFile.getValue("ADC_DEV", "BufferLenSeconds"));
+    std::cout << get_as<int>(myIniFile.getValue("COMMN", "DiskCachePath"));
+    std::cout << get_as<int>(myIniFile.getValue("COMMON", "DiskCachePath"));
 
     
 
